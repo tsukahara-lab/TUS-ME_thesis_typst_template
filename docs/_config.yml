@@ -22,7 +22,7 @@ search:
   # Set the search token separator
   # Default: /[\s\-/]+/
   # Example: enable support for hyphenated search words
-  tokenizer_separator: /[\s/]+/
+  # tokenizer_separator: /[\s/]+/
   # Display the relative url in search results
   # Supports true (default) or false
   rel_url: true
@@ -31,6 +31,3 @@ search:
   button: false
   # Focus the search input by pressing `ctrl + focus_shortcut_key` (or `cmd + focus_shortcut_key` on macOS)
   focus_shortcut_key: "k"
-
-extra_javascript:
-  - assets/js/custom.js
