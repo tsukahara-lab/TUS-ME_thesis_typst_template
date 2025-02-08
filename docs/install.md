@@ -1,6 +1,7 @@
 ---
 title: 環境構築
 layout: default
+nav_order: 2
 ---
 
 # 環境構築
