@@ -52,3 +52,7 @@
 
 //参考文献
 #include "bib.typ"
+
+//付録
+#show: thesis-appendix
+#include "chapter/appendix.typ"

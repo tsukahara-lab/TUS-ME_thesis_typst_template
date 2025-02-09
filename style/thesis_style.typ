@@ -228,6 +228,77 @@
   body
 }
 
+#let thesis-appendix(body) = {
+
+  //番号をリセット
+  counter(heading).update(0)
+
+  set heading(numbering: "A", outlined: false)
+  show heading: (it => {
+    set text(font: gothic, size: 1.2em)
+    set par(first-line-indent: 0em)
+
+    it.body
+  })
+
+  show heading.where(level: 1): set heading(outlined: true)
+  show heading.where(level: 1): (it => {
+    set text(font: gothic, size: 1.5em)
+    set par(first-line-indent: 0em)
+
+    pagebreak()
+    if it.numbering != none{
+      [付録] + context counter(heading).display()
+      v(0.25em)
+      it.body
+    }
+    else{
+      it.body
+      v(1em)
+    }
+    v(0.1em)
+  })
+
+  set page(
+    header: context [//ヘッダーの設定
+      #let first-heading-selector = heading.where(level: 1)
+
+      #let pages-with-first-level-heading = query(first-heading-selector).map(it => it.location().page())
+      #let has-first-level-heading-on-current-page = here().page() in pages-with-first-level-heading
+
+      #let all-headings-before = query(first-heading-selector.before(here()))
+
+      #let pages-with-first-level-heading-numbering = all-headings-before.at(-1, default: none)
+      #if pages-with-first-level-heading-numbering != none{
+        pages-with-first-level-heading-numbering = pages-with-first-level-heading-numbering.numbering
+      }
+
+      #if not has-first-level-heading-on-current-page and all-headings-before.at(-1, default: none) != none {
+        let body = all-headings-before.at(-1).body
+        set text(font: gothic, weight: "bold")
+        if pages-with-first-level-heading-numbering != none{
+          [付録] + [#numbering("A", counter(heading).get().at(0))] + [　]
+        }
+        body + h(1fr)
+        text(font: mincho, weight: "regular")[#counter(page).get().at(0)]
+        v(-0.5em)
+        line(length: 90%)
+      }
+    ]
+  )
+
+  set math.equation(numbering: num =>
+    "(" + (str(numbering("A", counter(heading).get().at(0))) + "." + str(num)) + ")"
+  )
+
+  body
+}
+
+
+// %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+//                          COVER PAGE
+// %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 #let number-to-zenkaku(num, nonumber: false) = {
   let zenkaku = ("０", "１", "２", "３", "４", "５", "６", "７", "８", "９")
   let hankaku = ("0", "1", "2", "3", "4", "5", "6", "7", "8", "9")
@@ -334,6 +405,11 @@
   )
 }
 
+
+// %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+//                        OUTLINE FUNCTION
+// %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 #let outline-page = {
 
   show outline.entry: it => {
@@ -363,7 +439,13 @@
     }
 
     if it.element.numbering != none{
-      [第] + title.at(0) + [章]
+
+      if it.element.numbering == "A"{
+        [付録] + title.at(0)
+      }
+      else{
+        [第] + title.at(0) + [章]
+      }
       context{
         let req_h = 150pt - here().position().x
         if req_h < (2em).to-absolute(){

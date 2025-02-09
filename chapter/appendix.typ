@@ -1,3 +1,11 @@
 #import "../style/thesis_style.typ": *
 
-#heading([付録], numbering: none)
+= 修士課程における研究成果
+
+#roremu(1520)
+
+$
+  integral sin x dd(x)
+$
+
+#roremu(152)
