@@ -1,5 +1,7 @@
 #import "style/thesis_style.typ": *
+#import "bib_style/bib_style.typ": *
 #show: thesis_init
+#show: bib_init
 
 // 提出時にはコメントアウトすること
 #set par.line(numbering: n => text(size: 8pt)[#n], numbering-scope: "page",number-clearance: 10pt)
@@ -47,3 +49,6 @@
 
 //謝辞
 #include "chapter/acknowledgement.typ"
+
+//参考文献
+#include "bib.typ"

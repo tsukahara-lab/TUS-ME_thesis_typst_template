@@ -5,7 +5,7 @@
 #let mathf = ("Latin Modern Math")
 
 // 日本語間のコード改行
-#let cjkre = regex("[ ]*([\p{Han}\p{Hiragana}\p{Katakana}]+)[ ]*")
+#let cjkre = regex("[ ]*([\p{Han}\p{Hiragana}\p{Katakana}]+(?:,[ ]*[\p{Han}\p{Hiragana}\p{Katakana}]+)*)[ ]*")
 
 // 外部パッケージ
 #import "@preview/equate:0.2.1": equate
