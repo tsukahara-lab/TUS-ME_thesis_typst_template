@@ -4,20 +4,20 @@
 
 #signary-list(title: [Alphabet],
   (
-    [ $d$ ]   , [ Channel width [m] ],
-    [ $L_j$ ] , [ Computational domainsize in $j$-direction [m] ],
+    [ $d$ ]   , [ Channel width [#unit("m", space: none)] ],
+    [ $L_j$ ] , [ Computational domainsize in $j$-direction [#unit("m", space: none)] ],
     [ $N_j$ ] , [ Number of grid points in $𝑗$-direction ],
     [ $R e$ ] , [ Reynolds number, $=u d\/nu$ ],
-    [ $u$ ]   , [ Velocity [m/s] ],
+    [ $u$ ]   , [ Velocity [#unit("m/s", space: none)] ],
   )
 )
 #linebreak()
 
 #signary-list(title: [Greek],
   (
-    [ $delta$ ]           , [ Channel half width [m] ],
+    [ $delta$ ]           , [ Channel half width [#unit("m", space: none)] ],
     [ $epsilon_(i j k)$ ] , [ Levi–Civita symbol ],
-    [ $nu$ ]              , [ Kinematic viscosity [m^2/s] ],
+    [ $nu$ ]              , [ Kinematic viscosity [#unit("m^2/s", space: none)] ],
   )
 )
 #linebreak()

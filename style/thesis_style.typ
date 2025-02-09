@@ -11,6 +11,7 @@
 #import "@preview/equate:0.2.1": equate
 #import "@preview/roremu:0.1.0": roremu
 #import "@preview/physica:0.9.4": *
+#import "@preview/unify:0.7.0": *
 
 // 初期設定
 #let thesis_init(body) = {

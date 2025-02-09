@@ -22,6 +22,7 @@
 
 #outline-page
 
+//記号表
 #counter(page).update(0)
 #show: thesis_signary
 #include "chapter/signary.typ"
@@ -29,14 +30,20 @@
 #counter(page).update(0)
 #show: thesis_main
 
+//序論
 #include "chapter/introduction.typ"
 
+//計算手法
 #include "chapter/method.typ"
 
+//結果
 #include "chapter/result.typ"
 
+//考察
 #include "chapter/discussion.typ"
 
+//結論
 #include "chapter/conclusion.typ"
 
+//謝辞
 #include "chapter/acknowledgement.typ"
