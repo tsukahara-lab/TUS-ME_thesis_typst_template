@@ -30,3 +30,13 @@
 #show: thesis_main
 
 #include "chapter/introduction.typ"
+
+#include "chapter/method.typ"
+
+#include "chapter/result.typ"
+
+#include "chapter/discussion.typ"
+
+#include "chapter/conclusion.typ"
+
+#include "chapter/acknowledgement.typ"

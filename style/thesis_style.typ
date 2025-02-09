@@ -16,7 +16,7 @@
 #let thesis_init(body) = {
 
   //言語設定
-  set text(lang: "ja")
+  set text(lang: "ja", cjk-latin-spacing: auto)
 
   // ページサイズ設定
   set page(
@@ -104,6 +104,10 @@
     )
   }
   show: equate.with(breakable: true, number-mode: "line")
+  show math.equation.where(block: false): it => {
+    let ghost = text(font: "Adobe Blank", "\u{375}") // 欧文ゴースト
+    ghost; it; ghost
+  }
 
   // 図表設定
   set figure(placement: top)
@@ -356,6 +360,7 @@
     else{
       title = (it.body, )
     }
+
     if it.element.numbering != none{
       [第] + title.at(0) + [章]
       context{
@@ -365,10 +370,11 @@
         }
         h(req_h)
       }
-      it.element.body
+
+      link(it.element.location(),it.element.body)
     }
     else{
-      title.at(0)
+      link(it.element.location(),title.at(0))
     }
     h(1em)
     it.fill
@@ -376,7 +382,7 @@
   }
 
   outline(
-    indent: 2em,
+    indent: 1em,
     fill: box(width: 1fr, repeat(h(2pt) + sym.dot.c + h(2pt))) + h(8pt),
   )
 }

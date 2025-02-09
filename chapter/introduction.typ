@@ -1,6 +1,6 @@
 #import "../style/thesis_style.typ": *
 
-= 初めに
+= 序論
 
 #roremu(188)
 
@@ -18,3 +18,7 @@ $
   rect(width: 10cm, height: 6cm, fill: luma(230), align(center + horizon)[#text(size: 3em, font: gothic)[Image]]),
   caption: "画像の説明",
 )<fig1>
+
+=== サブタイトル
+
+#roremu(524)
