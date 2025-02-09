@@ -8,7 +8,7 @@
 
 // タイトルページ
 #thesis_title(
-  title: [タイトル],
+  title: [ここには学位論文のタイトルを入れます．\ 一文字でも間違えたら受理されません．],
   year: 2025,
   master: false,
   laboratory: [塚原],
@@ -25,11 +25,10 @@
 #outline-page
 
 //記号表
-#counter(page).update(0)
 #show: thesis_signary
 #include "chapter/signary.typ"
 
-#counter(page).update(0)
+// ----- ここから本文 ----- //
 #show: thesis_main
 
 //序論

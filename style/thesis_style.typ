@@ -17,7 +17,7 @@
 #let thesis_init(body) = {
 
   //言語設定
-  set text(lang: "ja", cjk-latin-spacing: auto)
+  set text(lang: "ja", cjk-latin-spacing: auto, fallback: false)
 
   // ページサイズ設定
   set page(
@@ -138,6 +138,8 @@
 
 #let thesis_signary(body) = {
 
+  counter(page).update(0)
+
   set page(
     header: context [//ヘッダーの設定
       #let first-heading-selector = heading.where(level: 1)
@@ -180,6 +182,8 @@
 }
 
 #let thesis_main(body) = {
+
+  counter(page).update(0)
 
   // ヘッダー設定
   set page(
@@ -365,7 +369,7 @@
     margin: (left: 25mm, right: 10mm, top: 25mm, bottom: 15mm),
   )
   set align(center)
-  linebreak_num(8)
+  v(12em)
   number-to-zenkaku(year) + [年度]
   if master{
     [修士論文]
@@ -373,12 +377,12 @@
   else{
     [卒業論文]
   }
-  linebreak_num(2)
+  v(2.5em)
   text(size: 18pt)[#title]
-  linebreak_num(9)
+  v(13em)
   let up_year = str(zenkaku-to-number(year) + 1)
   number-to-zenkaku(up_year) + [年] + number-to-zenkaku(month) + [月]
-  linebreak_num(2)
+  v(2.5em)
   if institution != none{
     institution
   }
@@ -390,9 +394,9 @@
       [東京理科大学創域理工学部機械航空宇宙工学科]
     }
   }
-  linebreak_num(1)
+  v(1em)
   laboratory + [研究室]
-  linebreak_num(3)
+  v(4em)
   set align(left)
   grid(
     columns: (17em, auto),
