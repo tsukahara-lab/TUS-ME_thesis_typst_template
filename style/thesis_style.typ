@@ -345,7 +345,7 @@
         }
         h(req_h)
     }
-    title.slice(2).sum()
+    link(it.element.location(),it.element.body)
     h(1em)
     it.fill
     it.page
