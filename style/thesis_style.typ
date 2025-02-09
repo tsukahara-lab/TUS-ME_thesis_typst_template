@@ -1,0 +1,396 @@
+
+// フォント
+#let mincho = ("Times New Roman", "Harano Aji Mincho")
+#let gothic = ("Helvetica", "Harano Aji Gothic")
+#let mathf = ("Latin Modern Math")
+
+// 日本語間のコード改行
+#let cjkre = regex("[ ]*([\p{Han}\p{Hiragana}\p{Katakana}]+)[ ]*")
+
+// 外部パッケージ
+#import "@preview/equate:0.2.1": equate
+#import "@preview/roremu:0.1.0": roremu
+#import "@preview/physica:0.9.4": *
+
+// 初期設定
+#let thesis_init(body) = {
+
+  //言語設定
+  set text(lang: "ja")
+
+  // ページサイズ設定
+  set page(
+    paper:"a4",
+    margin: (left: 25mm, right: 10mm, top: 33mm, bottom: 30mm),
+    //numbering: "1",
+    //number-align: center,
+  )
+
+  //パラグラフ設定
+  set par(
+    justify: true,
+    first-line-indent: 1em,
+    leading: 1em,
+  )
+
+  // テキスト設定
+  set text(
+    size: 12pt,
+    font: mincho
+  )
+
+  // 見出し設定
+  set heading(numbering: "1.1")
+  show heading: (it => {
+    set text(font: gothic, size: 1.2em)
+    set par(first-line-indent: 0em)
+    if it.numbering != none{
+      context counter(heading).display() + [　] +it.body
+    }
+    else{
+      it.body
+    }
+  })
+
+  show heading.where(level: 1): (it => {
+    set text(font: gothic, size: 1.5em)
+    set par(first-line-indent: 0em)
+
+    pagebreak()
+    if it.numbering != none{
+      [第] + context counter(heading).display() + [章]
+      v(0.25em)
+      it.body
+    }
+    else{
+      it.body
+      v(1em)
+    }
+    v(0.1em)
+  })
+
+  show heading.where(level: 2): (it => {
+    set text(font: gothic, size: 1.3em)
+    set par(first-line-indent: 0em)
+    v(0.5em)
+    if it.numbering != none{
+      context counter(heading).display() + [　] +it.body
+    }
+    else{
+      it.body
+    }
+    v(0.5em)
+  })
+
+  // 数式設定
+  show math.equation: set text(font: mathf)
+  show math.equation: set block(spacing: 2em)
+  set math.equation(numbering: "(1)")
+  show heading.where(level: 1): it => {
+    counter(math.equation).update(0)
+    counter(figure.where(kind: image)).update(0)
+    counter(figure.where(kind: table)).update(0)
+    counter(figure.where(kind: raw)).update(0)
+    it
+  }
+  set math.equation(numbering: num =>
+    "(" + (str(counter(heading).get().at(0)) + "." + str(num)) + ")"
+  )
+  show math.equation.where(block: true): set align(left)// set block equation align
+  show math.equation.where(block: true): it => {// set block equation space
+    grid(
+      columns: (2em, auto),
+      [],it
+    )
+  }
+  show: equate.with(breakable: true, number-mode: "line")
+
+  // 図表設定
+  set figure(placement: top)
+  set figure.caption(separator: [　])
+  show figure.where(kind: table): set figure.caption(position: top)
+  show figure.caption: it => {// if figure caption is image ...
+    set par(leading: 4.5pt, justify: true)
+    grid(
+      columns: 2,
+      {
+        if it.kind == table{
+          [Table ] + context counter(figure.where(kind: table)).display() + [　]
+        }
+        else{
+          [Fig. ] + context counter(figure.where(kind: image)).display() + [　]
+        }
+      },
+      align(left)[#it.body]
+    )
+  }
+
+  // 日本語間のコード改行を無効化
+  show cjkre: it => it.text.match(cjkre).captures.at(0)
+
+  body
+}
+
+#let thesis_signary(body) = {
+
+  set page(
+    header: context [//ヘッダーの設定
+      #let first-heading-selector = heading.where(level: 1)
+
+      #let pages-with-first-level-heading = query(first-heading-selector).map(it => it.location().page())
+      #let has-first-level-heading-on-current-page = here().page() in pages-with-first-level-heading
+
+      #let all-headings-before = query(first-heading-selector.before(here()))
+
+      #let pages-with-first-level-heading-numbering = all-headings-before.at(-1, default: none)
+      #if pages-with-first-level-heading-numbering != none{
+        pages-with-first-level-heading-numbering = pages-with-first-level-heading-numbering.numbering
+      }
+
+      #if not has-first-level-heading-on-current-page and all-headings-before.at(-1, default: none) != none {
+        h(1fr)
+        text(font: mincho, weight: "regular")[#numbering("i",counter(page).get().at(0))]
+        v(-0.5em)
+      }
+    ],
+    footer: context [//フッターの設定
+      #set align(center)
+
+      #let first-heading-selector = heading.where(level: 1)
+
+      #let pages-with-first-level-heading = query(first-heading-selector).map(it => it.location().page())
+      #let has-first-level-heading-on-current-page = here().page() in pages-with-first-level-heading
+
+      #let all-headings-before = query(first-heading-selector.before(here()))
+
+      #if has-first-level-heading-on-current-page{
+        text(font: mincho, weight: "regular")[— i —]
+      }
+    ],
+    numbering: "i",
+  )
+
+  body
+
+}
+
+#let thesis_main(body) = {
+
+  // ヘッダー設定
+  set page(
+    header: context [//ヘッダーの設定
+      #let first-heading-selector = heading.where(level: 1)
+
+      #let pages-with-first-level-heading = query(first-heading-selector).map(it => it.location().page())
+      #let has-first-level-heading-on-current-page = here().page() in pages-with-first-level-heading
+
+      #let all-headings-before = query(first-heading-selector.before(here()))
+
+      #let pages-with-first-level-heading-numbering = all-headings-before.at(-1, default: none)
+      #if pages-with-first-level-heading-numbering != none{
+        pages-with-first-level-heading-numbering = pages-with-first-level-heading-numbering.numbering
+      }
+
+      #if not has-first-level-heading-on-current-page and all-headings-before.at(-1, default: none) != none {
+        let body = all-headings-before.at(-1).body
+        set text(font: gothic, weight: "bold")
+        if pages-with-first-level-heading-numbering != none{
+          [第] + [#counter(heading).get().at(0)] + [章　]
+        }
+        body + h(1fr)
+        text(font: mincho, weight: "regular")[#counter(page).get().at(0)]
+        v(-0.5em)
+        line(length: 90%)
+      }
+    ],
+    footer: context [//フッターの設定
+      #set align(center)
+
+      #let first-heading-selector = heading.where(level: 1)
+
+      #let pages-with-first-level-heading = query(first-heading-selector).map(it => it.location().page())
+      #let has-first-level-heading-on-current-page = here().page() in pages-with-first-level-heading
+
+      #let all-headings-before = query(first-heading-selector.before(here()))
+
+      #if has-first-level-heading-on-current-page{
+        text(font: mincho, weight: "regular")[— #counter(page).get().at(0) —]
+      }
+    ],
+    numbering: "1",
+  )
+
+  body
+}
+
+#let number-to-zenkaku(num, nonumber: false) = {
+  let zenkaku = ("０", "１", "２", "３", "４", "５", "６", "７", "８", "９")
+  let hankaku = ("0", "1", "2", "3", "4", "5", "6", "7", "8", "9")
+  let result = ""
+  for c in str(num){
+    if not zenkaku.contains(c){
+      if hankaku.contains(c){
+        result += zenkaku.at(int(c))
+      }
+      else if nonumber{
+        result += "＊"
+      }
+    }
+    else{
+      result += c
+    }
+
+  }
+  result
+}
+
+#let zenkaku-to-number(num) = {
+  let zenkaku = ("０", "１", "２", "３", "４", "５", "６", "７", "８", "９")
+  let hankaku = ("0", "1", "2", "3", "4", "5", "6", "7", "8", "9")
+
+  let result = ""
+  for c in str(num){
+    if not hankaku.contains(c){
+      for index in range(10){
+        if zenkaku.at(index) == c{
+          result += hankaku.at(index)
+          break
+        }
+      }
+    }
+    else{
+      result += c
+    }
+
+  }
+  int(result)
+}
+
+#let linebreak_num(num) = {
+  for index in range(num + 1){
+    linebreak()
+  }
+}
+
+#let thesis_title(
+  title: [タイトル],
+  year: "2025",
+  master: false,
+  month: "2",
+  institution: none,
+  laboratory: [〇〇],
+  authors: (
+    ( student-id: "75*****",
+      name: "機械　工作"
+    ),
+  ),
+) = {
+  set page(
+    margin: (left: 25mm, right: 10mm, top: 25mm, bottom: 15mm),
+  )
+  set align(center)
+  linebreak_num(8)
+  number-to-zenkaku(year) + [年度]
+  if master{
+    [修士論文]
+  }
+  else{
+    [卒業論文]
+  }
+  linebreak_num(2)
+  text(size: 18pt)[#title]
+  linebreak_num(9)
+  let up_year = str(zenkaku-to-number(year) + 1)
+  number-to-zenkaku(up_year) + [年] + number-to-zenkaku(month) + [月]
+  linebreak_num(2)
+  if institution != none{
+    institution
+  }
+  else{
+    if master{
+      [東京理科大学大学院創域理工学研究科機械航空宇宙工学専攻]
+    }
+    else{
+      [東京理科大学創域理工学部機械航空宇宙工学科]
+    }
+  }
+  linebreak_num(1)
+  laboratory + [研究室]
+  linebreak_num(3)
+  set align(left)
+  grid(
+    columns: (17em, auto),
+    [],
+    {
+      for value in authors{
+        number-to-zenkaku(value.student-id, nonumber: true) + h(2em) + value.name + linebreak()
+      }
+    }
+  )
+}
+
+#let outline-page = {
+
+  show outline.entry: it => {
+    let title = it.body.children
+    title.at(0)
+    context{
+        let req_h = 150pt - here().position().x
+        if req_h < (2em).to-absolute(){
+          req_h = 2em
+        }
+        h(req_h)
+    }
+    title.slice(2).sum()
+    h(1em)
+    it.fill
+    it.page
+  }
+
+  show outline.entry.where(level: 1): it => {
+
+    let title = ()
+    if it.body.has("children"){
+      title = it.body.children
+    }
+    else{
+      title = (it.body, )
+    }
+    if it.element.numbering != none{
+      [第] + title.at(0) + [章]
+      context{
+        let req_h = 150pt - here().position().x
+        if req_h < (2em).to-absolute(){
+          req_h = 2em
+        }
+        h(req_h)
+      }
+      it.element.body
+    }
+    else{
+      title.at(0)
+    }
+    h(1em)
+    it.fill
+    it.page
+  }
+
+  outline(
+    indent: 2em,
+    fill: box(width: 1fr, repeat(h(2pt) + sym.dot.c + h(2pt))) + h(8pt),
+  )
+}
+
+// %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+//                        LOCAL FUNCTION
+// %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+#let signary-list(title: [], body) = {
+  set par(first-line-indent: 0em)
+  title
+  table(
+    columns: (10em, auto),
+    stroke: none,
+    ..body
+  )
+}
