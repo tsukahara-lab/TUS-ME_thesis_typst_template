@@ -54,7 +54,7 @@
   })
 
   show heading.where(level: 1): (it => {
-    set text(font: gothic, size: 1.5em)
+    set text(font: gothic, size: 1.33em)
     set par(first-line-indent: 0em)
 
     pagebreak()
@@ -247,7 +247,7 @@
 
   show heading.where(level: 1): set heading(outlined: true)
   show heading.where(level: 1): (it => {
-    set text(font: gothic, size: 1.5em)
+    set text(font: gothic, size: 1.33em)
     set par(first-line-indent: 0em)
 
     pagebreak()
@@ -294,6 +294,8 @@
   set math.equation(numbering: num =>
     "(" + (str(numbering("A", counter(heading).get().at(0))) + "." + str(num)) + ")"
   )
+
+  set figure(placement: top)
 
   body
 }
