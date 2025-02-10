@@ -11,7 +11,7 @@
 $
   integral_0^(2pi) sin x dd(x) &= [cos x ]_0^(2pi)\
   &= 0
-$
+$<sin-integral>
 #roremu(326)
 
 #fig(
@@ -25,7 +25,7 @@ $
 ここには，文中の数式$sin x$を表記しています．
 日 本 語 間 の 半 角 ス ペ ー ス は ， コ ン パ イ ル 時 に 自 動 的 に 除 去 さ れ ま す．
 
-#roremu(1000)
+#roremu(717)
 
 #fig(
   table(
@@ -50,3 +50,16 @@ $
 - テキスト2
 - テキスト3
 となります．
+
+また@latex-code は，@sin-integral の#LaTeX での書き方です．
+typstでは積分記号を`integral`と書きますが，#LaTeX では`\int`と書きます．
+
+#fig(
+```latex
+\begin{equation}
+  \int_0^{2\pi} \sin x \d{x} = \left[ \cos x \right]_0^{2\pi} = 0
+\end{equation}
+```,
+  caption: "This is caption of sample code block.",
+  label: <latex-code>
+)

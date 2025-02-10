@@ -3,6 +3,7 @@
 #let mincho = ("Times New Roman", "Harano Aji Mincho")
 #let gothic = ("Helvetica", "Harano Aji Gothic")
 #let mathf = ("Latin Modern Math")
+#let codef = ("Noto Mono for Powerline")
 
 // 日本語間のコード改行
 #let cjkre = regex("[ ]*([\p{Han}\p{Hiragana}\p{Katakana}]+(?:[,\(\)][ ]*[\p{Han}\p{Hiragana}\p{Katakana}]+)*)[ ]*")
@@ -115,6 +116,8 @@
   set figure.caption(separator: [　])
   show figure: set block(breakable: true)
   show figure.where(kind: table): set figure.caption(position: top)
+  show figure.where(kind: raw): set figure.caption(position: top)
+  show figure.where(kind: raw): set figure(supplement: [コード])
   show figure.caption: it => {// if figure caption is image ...
     set par(leading: 4.5pt, justify: true)
     set text(size: 11.4pt)
@@ -123,6 +126,9 @@
       {
         if it.kind == table{
           [Table ] + context counter(figure.where(kind: table)).display() + [　]
+        }
+        else if it.kind == raw{
+          [Code ] + context counter(figure.where(kind: raw)).display() + [　]
         }
         else{
           [Fig. ] + context counter(figure.where(kind: image)).display() + [　]
@@ -159,6 +165,30 @@
   )
   set table.hline(stroke: pat-single + 5pt)
   set table.vline(stroke: 0.5pt)
+
+  //コードの設定
+  show raw.where(block: true): it => {
+    set text(font: codef)
+      set table(stroke: (x, y) => (
+        //left: if x == 1 { 0.5pt } else { 0pt },
+        //right: if x == 1 { 0.5pt } else { 0pt },
+        top: if y == 0 and x == 1{ 0.5pt } else { 0pt },
+        bottom: if x == 1 { 0.5pt } else { 0pt },
+      ))
+      table(
+        columns: (5%, 95%),
+        align: (right, left),
+        ..for value in it.lines {
+          (text(fill: black,str(value.number)), value)
+        }
+      )
+  }
+  show raw.where(block: false): it =>{
+    set text(font: codef)
+    h(0.5em)
+    it
+    h(0.5em)
+  }
 
   //リストの設定
   set list(indent: 2em, body-indent: 0.75em, spacing: 1em)
@@ -512,6 +542,23 @@
 // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 //                        LOCAL FUNCTION
 // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+// LATEX character
+#let LaTeX = {
+  [L];box(move(
+    dx: -4.2pt, dy: -1.2pt,
+    box(scale(65%)[A])
+  ));box(move(
+  dx: -5.7pt, dy: 0pt,
+  [T]
+));box(move(
+  dx: -7.0pt, dy: 2.7pt,
+  box(scale(100%)[E])
+));box(move(
+  dx: -8.0pt, dy: 0pt,
+  [X]
+));h(-8.0pt)
+}
 
 #let signary-list(title: [], body) = {
   set par(first-line-indent: 0em)

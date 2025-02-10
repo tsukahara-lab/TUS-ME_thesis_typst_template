@@ -12,7 +12,7 @@
   show ref: it =>{
 
       if it.has("element") and it.element != none{
-        if it.element.kind == "bib"{
+        if it.element.has("kind") and it.element.kind == "bib"{
 
           let cite-arr = eval(it.element.supplement.text)
 
@@ -45,6 +45,9 @@
         else{
           it
         }
+      }
+      else{
+        it
       }
   }
   body
