@@ -113,6 +113,7 @@
   // 図表設定
   set figure(placement: top)
   set figure.caption(separator: [　])
+  show figure: set block(breakable: true)
   show figure.where(kind: table): set figure.caption(position: top)
   show figure.caption: it => {// if figure caption is image ...
     set par(leading: 4.5pt, justify: true)
@@ -131,15 +132,33 @@
     )
   }
   //表の設定
+  let pat-single = pattern(size: (30pt, 10pt), relative: "self")[
+    #v(0.25pt)
+    #stack(
+      line(start: (0%, 0%), end: (100%, 0%), stroke: 0.5pt),
+      spacing: 1.5pt
+    )
+  ]
+  let pat-double = pattern(size: (30pt, 10pt), relative: "self")[
+    #v(0.25pt)
+    #stack(
+      line(start: (0%, 0%), end: (100%, 0%), stroke: 0.5pt),
+      line(start: (0%, 0%), end: (100%, 0%), stroke: 0.5pt),
+      spacing: 1.5pt
+    )
+  ]
   let frame(stroke) = (x, y) => (
-    left: if x > 0 { stroke } else { 0pt },
+    left: if x > 0 { stroke } else { none },
     right: none,
-    top: if y == 0 { stroke } else if y == 1 { stroke } else{ 0pt },
-    bottom: stroke,
+    top: if y == 0 { pat-double + 5pt } else if y == 1 { /* pat-single + 5pt  */ 0pt} else{ 0pt },
+    bottom: pat-single + 5pt,
   )
+  set table(stroke: none)
   set table(
-    stroke: frame(black),
+    stroke: frame(black + 0.5pt),
   )
+  set table.hline(stroke: pat-single + 5pt)
+  set table.vline(stroke: 0.5pt)
 
   //リストの設定
   set list(indent: 2em, body-indent: 0.75em, spacing: 1em)

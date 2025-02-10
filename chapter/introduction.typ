@@ -30,7 +30,8 @@ $
 #fig(
   table(
     columns: 2,
-    [*Amount*], [*Ingredient*],
+    table.header[Amount][Ingredient],
+    table.hline(),
     [360g], [Baking flour],
     [250g], [Butter (room temp.)],
     [150g], [Brown sugar],
@@ -40,7 +41,6 @@ $
     [2], [Eggs],
     [Pinch], [Salt],
     [Drizzle], [Vanilla extract],
-    table.hline(start: 0),
   ),
   caption: "This is caption of sample table.",
 )
