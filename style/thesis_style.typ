@@ -129,6 +129,16 @@
       align(left)[#it.body]
     )
   }
+  //表の設定
+  let frame(stroke) = (x, y) => (
+    left: if x > 0 { stroke } else { 0pt },
+    right: none,
+    top: if y == 0 { stroke } else if y == 1 { stroke } else{ 0pt },
+    bottom: stroke,
+  )
+  set table(
+    stroke: frame(black),
+  )
 
   // 日本語間のコード改行を無効化
   show cjkre: it => it.text.match(cjkre).captures.at(0)
@@ -488,4 +498,104 @@
     stroke: none,
     ..body
   )
+}
+
+#let fig(..arg, label: none, placement: auto) = {
+
+  if placement == auto{
+
+    context {
+
+      let heading-page =  query(heading.where(level: 1)).map(it => it.location().page())
+      let here-page = here().page()
+      let heading-here = here-page in heading-page
+
+      let fig-size = measure(figure(..arg)).height
+      let interval-size = 297mm - 63mm - fig-size - here().position().y
+
+      text(font: "Adobe Blank")[#hide([A])]
+
+      if heading-here {//章の先頭ページのとき
+
+        if fig-size > (297mm - 63mm) / 2{//図がページの半分以上のとき，単一ページとする
+          page[
+            #set align(center + horizon)
+            #figure(
+              ..arg,
+              placement: none
+            )#label
+          ]
+        }
+        else{
+          if interval-size > 0mm {//図を下に配置できるとき，下に配置
+            [
+              #figure(
+                ..arg,
+                placement: bottom
+              )#label
+            ]
+          }
+          else{//図を下に配置できないとき，次ページの上に配置
+            pagebreak()
+            [
+              #figure(
+                ..arg,
+                placement: top
+              )#label
+            ]
+          }
+        }
+      }
+      else{//章の途中ページのとき
+
+        if fig-size > (297mm - 63mm) / 2{//図がページの半分以上のとき，単一ページとする
+          page[
+            #set align(center + horizon)
+            #figure(
+              ..arg,
+              placement: none
+            )
+          ]
+        }
+        else{//図がページの半分以下のとき，上に配置
+          [
+              #figure(
+                ..arg,
+                placement: top
+              )#label
+            ]
+        }
+
+      }
+
+    }
+  }
+  else{
+    if placement == top{
+      [
+        #figure(
+          ..arg,
+          placement: top
+        )#label
+      ]
+    }
+    else if placement == bottom{
+      [
+        #figure(
+          ..arg,
+          placement: bottom
+        )#label
+      ]
+    }
+    else{
+      page[
+        #set align(center + horizon)
+        #figure(
+          ..arg,
+          placement: none
+        )
+      ]
+    }
+  }
+
 }
