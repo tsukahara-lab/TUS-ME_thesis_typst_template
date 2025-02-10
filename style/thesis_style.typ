@@ -107,7 +107,7 @@
   }
   show: equate.with(breakable: true, number-mode: "line")
   show math.equation.where(block: false): it => {
-    let ghost = text(font: "Adobe Blank", "\u{375}") // 欧文ゴースト
+    let ghost = hide(text(font: "Adobe Blank", "\u{375}")) // 欧文ゴースト
     ghost; it; ghost
   }
 
