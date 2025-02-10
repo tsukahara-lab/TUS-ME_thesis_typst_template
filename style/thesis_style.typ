@@ -5,7 +5,7 @@
 #let mathf = ("Latin Modern Math")
 
 // 日本語間のコード改行
-#let cjkre = regex("[ ]*([\p{Han}\p{Hiragana}\p{Katakana}]+(?:,[ ]*[\p{Han}\p{Hiragana}\p{Katakana}]+)*)[ ]*")
+#let cjkre = regex("[ ]*([\p{Han}\p{Hiragana}\p{Katakana}]+(?:[,\(\)][ ]*[\p{Han}\p{Hiragana}\p{Katakana}]+)*)[ ]*")
 
 // 外部パッケージ
 #import "@preview/equate:0.2.1": equate
@@ -139,6 +139,9 @@
   set table(
     stroke: frame(black),
   )
+
+  //リストの設定
+  set list(indent: 2em, body-indent: 0.75em, spacing: 1em)
 
   // 日本語間のコード改行を無効化
   show cjkre: it => it.text.match(cjkre).captures.at(0)

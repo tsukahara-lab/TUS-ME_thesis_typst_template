@@ -44,3 +44,9 @@ $
   ),
   caption: "This is caption of sample table.",
 )
+
+リストの項目は，次のように
+- テキスト1
+- テキスト2
+- テキスト3
+となります．
