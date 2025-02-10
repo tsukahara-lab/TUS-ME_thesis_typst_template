@@ -116,6 +116,7 @@
   show figure.where(kind: table): set figure.caption(position: top)
   show figure.caption: it => {// if figure caption is image ...
     set par(leading: 4.5pt, justify: true)
+    set text(size: 11.4pt)
     grid(
       columns: 2,
       {
