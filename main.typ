@@ -4,7 +4,7 @@
 #show: bib_init
 
 // 提出時にはコメントアウトすること
-#set par.line(numbering: n => text(size: 8pt)[#n], numbering-scope: "page",number-clearance: 10pt)
+#show: check-contents
 
 // タイトルページ
 #thesis_title(

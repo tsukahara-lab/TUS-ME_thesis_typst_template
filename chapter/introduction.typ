@@ -17,7 +17,7 @@ $<sin-integral>
 #fig(
   rect(width: 9cm, height: 6cm, fill: luma(230), align(center + horizon)[#text(size: 3em, font: gothic)[Image]]),
   caption: "This is caption of sample image.",
-  label: <fig1>
+  label: <fig-sample>
 )
 
 === サブタイトル
@@ -26,7 +26,6 @@ $<sin-integral>
 日 本 語 間 の 半 角 ス ペ ー ス は ， コ ン パ イ ル 時 に 自 動 的 に 除 去 さ れ ま す．
 
 #roremu(717)
-
 #fig(
   table(
     columns: 2,
@@ -44,6 +43,8 @@ $<sin-integral>
   ),
   caption: "This is caption of sample table.",
 )
+
+図の参照は，@fig-sample のように行います．
 
 リストの項目は，次のように
 - テキスト1

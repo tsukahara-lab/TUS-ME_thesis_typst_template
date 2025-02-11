@@ -8,6 +8,9 @@
 // 日本語間のコード改行
 #let cjkre = regex("[ ]*([\p{Han}\p{Hiragana}\p{Katakana}]+(?:[,\(\)][ ]*[\p{Han}\p{Hiragana}\p{Katakana}]+)*)[ ]*")
 
+// コメント内容
+#let comment-content-arr = state("comment-content-arr", ())
+
 // 外部パッケージ
 #import "@preview/equate:0.2.1": equate
 #import "@preview/roremu:0.1.0": roremu
@@ -540,6 +543,97 @@
 }
 
 // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+//                        CHECK FUNCTION
+// %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+#let check-contents(body) = {
+
+  // 行番号の設定
+  set par.line(numbering: n => text(size: 8pt, font: codef)[#n], numbering-scope: "page",number-clearance: 10pt)
+
+  // チェックページの有効化
+  let check-page = true
+  if check-page{
+    context {
+
+      let comment-contents = query(figure.where(kind: "comment"))
+      let comment-arr = comment-content-arr.final()
+
+      if comment-contents != (){// コメントがある場合
+        text(size: 1.2em, font: gothic, weight: "bold")[コメント]
+
+        let comment-table = ()
+        let num = 0
+        for value in comment-contents{
+          comment-table.push(link(value.location(), str(counter(page).at(value.location()).at(0))))
+          comment-table.push(link(value.location(), comment-arr.at(num)))
+          num += 1
+        }
+
+        table(
+          columns: (auto, 1fr),
+          align: (center, left),
+          table.header[ページ番号][タイトル],
+          table.hline(),
+          ..comment-table
+        )
+      }
+
+      let alert-contents = ()
+      let fig-contents = query(figure.where(kind: image))
+      let fig-reference = query(ref)
+
+      for value in fig-contents{
+
+        let lab = value.has("label")
+
+        if not lab{//ラベルがない場合
+          alert-contents.push((value.location(), str(counter(figure.where(kind: image)).at(value.location()).at(0)), [図のラベルがありません]))
+        }
+        else{//ラベルがある場合
+          let exist-ref = false
+          for index in fig-reference{
+            if index.target == value.label{
+              exist-ref = true
+              break
+            }
+          }
+
+          if not exist-ref{
+            alert-contents.push((value.location(), str(counter(figure.where(kind: image)).at(value.location()).at(0)), [図が文中で言及されていません]))
+          }
+        }
+      }
+
+      if alert-contents != (){//アラートがある場合
+        text(size: 1.2em, font: gothic, weight: "bold")[警告]
+
+        let alert-table = ()
+        let num = 0
+        for value in alert-contents{
+          alert-table.push(link(value.at(0), str(counter(page).at(value.at(0)).at(0))))
+          alert-table.push(link(value.at(0), value.at(1)))
+          alert-table.push(link(value.at(0), value.at(2)))
+          num += 1
+        }
+
+        table(
+          columns: (auto, auto, 1fr),
+          align: (center, center, left),
+          table.header[ページ番号][図番号][内容],
+          table.hline(),
+          ..alert-table
+        )
+      }
+
+    }
+  }
+
+  body
+}
+
+
+// %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 //                        LOCAL FUNCTION
 // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -668,4 +762,50 @@
     }
   }
 
+}
+
+#let comment(title: none, body) = {
+
+  let title-color = luma(75)
+  let body-color = luma(230)
+
+  if title != none{
+    figure(
+      [
+        #set align(left)
+        #block(
+          stack(
+            block(width: 100%, fill: title-color, inset: (x: 1em, y:0.6em), radius: (top: 0.5em), stroke: title-color + 1.5pt, text(fill: white, font: gothic, weight: "bold", title)),
+            block(width: 100%, inset: 1em, fill: body-color, radius: (bottom: 0.5em), stroke: title-color + 1.5pt, body)
+          ),
+          breakable: false
+        )
+      ],
+      placement: none,
+      kind: "comment",
+      supplement: [コメント]
+    )
+  }
+  else{
+    figure(
+      [
+        #set align(left)
+        #block(width: 100%, inset: 1em, fill: body-color, radius: 0.5em, stroke: title-color + 1.5pt, body, breakable: false)
+      ],
+      placement: none,
+      kind: "comment",
+      supplement: [コメント]
+    )
+  }
+
+  comment-content-arr.update(it => {
+    let output-arr = it
+    if title != none{
+      output-arr.push(title)
+    }
+    else{
+      output-arr.push([無題])
+    }
+    output-arr
+  })
 }
