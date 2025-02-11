@@ -35,14 +35,14 @@ nav_order: 1
 
 1. `chapter`フォルダの中に`turbulence.typ`ファイルを作る
 2. `turbulence.typ`の中に次のように書く
-    ```typst
+    ```
     #import "../style/thesis_style.typ": *
 
     = 乱流について
     <chapter:乱流について>
     ```
 3. `main.typ`に以下の内容を追記して，新しく作ったファイルを認識させる
-    ```typst
+    ```
     //乱流について
     #include "chapter/turbulence.typ"
     ```
@@ -52,7 +52,7 @@ nav_order: 1
 例えば，`chapter/discussion.typ`を削除するときは，以下のようにします．
 
 1. `main.typ`内の以下の項目を削除する
-    ```typst
+    ```
     //考察
     #include "chapter/discussion.typ"
     ```
@@ -63,7 +63,7 @@ nav_order: 1
 
 学位論文に文章を加えるには，`chapter`フォルダの中にある`.typ`ファイル内を操作します．
 
-```typst
+```
 こんにちは，世界．
 今日はいい天気ですね．
 
@@ -71,7 +71,9 @@ nav_order: 1
 ```
 
 出力結果
+{: .highlight }
 ![](../images/basic-sentence-fig1.png)
+
 
 - `.typ`内での改行は，出力結果に影響しません．
 - `.typ`内で2行改行すると，段落が切り替わります．
