@@ -8,6 +8,14 @@ nav_order: 1
 # 基本の文章
 {: .no_toc }
 
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
+---
+
 ## ファイルの配置
 
 学位論文の本体は `main.typ` ですが，論文の中身を書くのは，`chapter`フォルダの中にある`.typ`ファイル内です．
@@ -57,7 +65,7 @@ nav_order: 1
     #include "chapter/discussion.typ"
     ```
 
-このとき，`chapter`フォルダ内に残った`discussion.typ`は残しておいても削除してもかまいませんが，`main.typ`内で認識させている他のファイルは削除してはいけません．
+    このとき，`chapter`フォルダ内に残った`discussion.typ`は残しておいても削除してもかまいませんが，`main.typ`内で認識させている他のファイルは削除してはいけません．
 
 ## 文章を書く
 
@@ -70,9 +78,9 @@ nav_order: 1
 明日は雨が降るかもしれません．
 ```
 
-出力結果
 {: .highlight }
-![](../images/basic-sentence-fig1.png)
+> 出力結果
+> ![](../images/basic-sentence-fig1.png)
 
 
 - `.typ`内での改行は，出力結果に影響しません．
