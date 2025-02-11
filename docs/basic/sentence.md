@@ -1,5 +1,6 @@
 ---
 title: 基本の文章
+layout: default
 parent: 文章の書き方
 nav_order: 1
 ---
