@@ -45,7 +45,7 @@
   )
 
   // 見出し設定
-  set heading(numbering: "1.1")
+  set heading(numbering: "1.1", supplement: [第])
   show heading: (it => {
     set text(font: gothic, size: 1.2em)
     set par(first-line-indent: 0em)
@@ -56,6 +56,27 @@
       it.body
     }
   })
+  show ref: it =>{
+
+    if it.element == none{//存在しないラベルはエラーとなる
+      it
+    }
+    else if it.element.func() == heading {
+      if it.supplement != auto{
+        it
+      }
+      else if it.element.level == 1{
+        it
+        [章]
+      }
+      else{
+        it
+        [節]
+      }
+    } else {
+      it
+    }
+  }
 
   show heading.where(level: 1): (it => {
     set text(font: gothic, size: 1.33em)
@@ -198,6 +219,9 @@
 
   //リストの設定
   set list(indent: 2em, body-indent: 0.75em, spacing: 1em)
+
+  //下線設定
+  set underline(offset: 4pt)
 
   // 日本語間のコード改行を無効化
   show cjkre: it => it.text.match(cjkre).captures.at(0)
