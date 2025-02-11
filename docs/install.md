@@ -30,7 +30,7 @@ nav_order: 2
 {: .warning }
 > 注意
 >
-> gitとGithubの準備ができていない場合は，先に [gitとGithub]({% link docs/github.md %}#aux-links) のページで設定を行ってください
+> gitとGithubの準備ができていない場合は，先に [gitとGithub]({% link github.md %}#aux-links) のページで設定を行ってください
 
 1. このテンプレートをcloneする
     ```bash
