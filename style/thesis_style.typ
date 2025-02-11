@@ -140,6 +140,9 @@
       align(left)[#it.body]
     )
   }
+  set figure(numbering: num =>
+    str(counter(heading).get().at(0)) + "." + str(num)
+  )
   //表の設定
   let pat-single = pattern(size: (30pt, 10pt), relative: "self")[
     #v(0.25pt)
@@ -359,6 +362,9 @@
 
   set math.equation(numbering: num =>
     "(" + (str(numbering("A", counter(heading).get().at(0))) + "." + str(num)) + ")"
+  )
+  set figure(numbering: num =>
+    str(numbering("A", counter(heading).get().at(0))) + "." + str(num)
   )
 
   set figure(placement: top)
@@ -588,7 +594,7 @@
         let lab = value.has("label")
 
         if not lab{//ラベルがない場合
-          alert-contents.push((value.location(), str(counter(figure.where(kind: image)).at(value.location()).at(0)), [図のラベルがありません]))
+          alert-contents.push((value.location(), [図のラベルがありません]))
         }
         else{//ラベルがある場合
           let exist-ref = false
@@ -600,7 +606,7 @@
           }
 
           if not exist-ref{
-            alert-contents.push((value.location(), str(counter(figure.where(kind: image)).at(value.location()).at(0)), [図が文中で言及されていません]))
+            alert-contents.push((value.location(), [図が文中で言及されていません]))
           }
         }
       }
@@ -608,12 +614,20 @@
       if alert-contents != (){//アラートがある場合
         text(size: 1.2em, font: gothic, weight: "bold")[警告]
 
+        let appendix-first-page = query(heading.where(numbering: "A")).map(it => it.location().page()).at(0)
+
         let alert-table = ()
         let num = 0
         for value in alert-contents{
+          let set-fig-num = str(counter(heading).at(value.at(0)).at(0)) + "." + str(counter(figure.where(kind: image)).at(value.at(0)).at(0))
+
+          if appendix-first-page >= counter(page).at(value.at(0)).at(0){
+            set-fig-num = str(numbering("A", counter(heading).at(value.at(0)).at(0))) + "." + str(counter(figure.where(kind: image)).at(value.at(0)).at(0))
+          }
+
           alert-table.push(link(value.at(0), str(counter(page).at(value.at(0)).at(0))))
+          alert-table.push(link(value.at(0), set-fig-num))
           alert-table.push(link(value.at(0), value.at(1)))
-          alert-table.push(link(value.at(0), value.at(2)))
           num += 1
         }
 
