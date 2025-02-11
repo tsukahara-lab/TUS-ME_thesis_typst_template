@@ -1,18 +1,11 @@
 ---
 title: 基本の文章
-layout: default
 parent: 文章の書き方
 nav_order: 1
 ---
 
 # 基本の文章
 {: .no_toc }
-
-## 目次
-{: .no_toc .text-delta }
-
-1. TOC
-{:toc}
 
 ## ファイルの配置
 
