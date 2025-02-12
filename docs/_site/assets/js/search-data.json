@@ -1,0 +1,100 @@
+{"0": {
+    "doc": "文章の書き方",
+    "title": "文章の書き方",
+    "content": " ",
+    "url": "/basic/basic.html",
+    
+    "relUrl": "/basic/basic.html"
+  },"1": {
+    "doc": "図の挿入",
+    "title": "図の挿入",
+    "content": " ",
+    "url": "/figure/figure.html",
+    
+    "relUrl": "/figure/figure.html"
+  },"2": {
+    "doc": "gitとGithub",
+    "title": "gitとGithub",
+    "content": " ",
+    "url": "/github.html",
+    
+    "relUrl": "/github.html"
+  },"3": {
+    "doc": "Home",
+    "title": "Typst テンプレートマニュアル",
+    "content": "これは，テンプレートです． . ",
+    "url": "/#typst-%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%83%9E%E3%83%8B%E3%83%A5%E3%82%A2%E3%83%AB",
+    
+    "relUrl": "/#typst-テンプレートマニュアル"
+  },"4": {
+    "doc": "Home",
+    "title": "Home",
+    "content": " ",
+    "url": "/",
+    
+    "relUrl": "/"
+  },"5": {
+    "doc": "環境構築",
+    "title": "環境構築",
+    "content": "ここでは，Typst環境を構築する方法について述べます． . ",
+    "url": "/install.html",
+    
+    "relUrl": "/install.html"
+  },"6": {
+    "doc": "環境構築",
+    "title": "Visual Studio Codeの準備",
+    "content": ". | Visual Studio Codeをインストールする . | https://azure.microsoft.com/ja-jp/products/visual-studio-codeにアクセス | ページの「VS Codeをダウンロードする」に移動 | 自分のPCに当てはまる項目を選択し，ダウンロード | ダウンロードしたインストーラを開き，案内に従ってインストール | . | 日本語設定をする . | . ",
+    "url": "/install.html#visual-studio-code%E3%81%AE%E6%BA%96%E5%82%99",
+    
+    "relUrl": "/install.html#visual-studio-codeの準備"
+  },"7": {
+    "doc": "環境構築",
+    "title": "Typstの準備",
+    "content": ". | Typst Tiministをインストールする | . ",
+    "url": "/install.html#typst%E3%81%AE%E6%BA%96%E5%82%99",
+    
+    "relUrl": "/install.html#typstの準備"
+  },"8": {
+    "doc": "環境構築",
+    "title": "学位論文テンプレートの準備",
+    "content": "gitとGithubの準備ができていない場合は，先に gitとGithub のページで設定を行ってください . | このテンプレートをcloneする https://github.com/tkrhsmt/TUS-ME_thesis_typst_template.git . | remote設定を書き換える | . ",
+    "url": "/install.html#%E5%AD%A6%E4%BD%8D%E8%AB%96%E6%96%87%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%81%AE%E6%BA%96%E5%82%99",
+    
+    "relUrl": "/install.html#学位論文テンプレートの準備"
+  },"9": {
+    "doc": "基本の文章",
+    "title": "基本の文章",
+    "content": " ",
+    "url": "/basic/sentence.html",
+    
+    "relUrl": "/basic/sentence.html"
+  },"10": {
+    "doc": "基本の文章",
+    "title": "Table of contents",
+    "content": ". | ファイルの配置 . | 新しくチャプターを作るとき | チャプターを削除するとき | . | 文章を書く | . ",
+    "url": "/basic/sentence.html#table-of-contents",
+    
+    "relUrl": "/basic/sentence.html#table-of-contents"
+  },"11": {
+    "doc": "基本の文章",
+    "title": "ファイルの配置",
+    "content": "学位論文の本体は main.typ ですが，論文の中身を書くのは，chapterフォルダの中にある.typファイル内です． テンプレートでは，chapterフォルダに以下の8つのファイルが含まれています． . ├── chapter │   ├── acknowledgement.typ │   ├── appendix.typ │   ├── conclusion.typ │   ├── discussion.typ │   ├── introduction.typ │   ├── method.typ │   ├── result.typ │   └── signary.typ └── main.typ . これらのファイルに制限はないため，状況によって増やしたり減らしたりすることが可能です． . 新しくチャプターを作るとき . 例えば，新たにturbulence.typファイルを作成し，「乱流について」というチャプターを作りたいときは，以下のような手順で設定します． . | chapterフォルダの中にturbulence.typファイルを作る | turbulence.typの中に次のように書く #import \"../style/thesis_style.typ\": * = 乱流について &lt;chapter:乱流について&gt; . | main.typに以下の内容を追記して，新しく作ったファイルを認識させる //乱流について #include \"chapter/turbulence.typ\" . | . チャプターを削除するとき . 例えば，chapter/discussion.typを削除するときは，以下のようにします． . | main.typ内の以下の項目を削除する //考察 #include \"chapter/discussion.typ\" . このとき，chapterフォルダ内に残ったdiscussion.typは残しておいても削除してもかまいませんが，main.typ内で認識させている他のファイルは削除してはいけません． . | . ",
+    "url": "/basic/sentence.html#%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E9%85%8D%E7%BD%AE",
+    
+    "relUrl": "/basic/sentence.html#ファイルの配置"
+  },"12": {
+    "doc": "基本の文章",
+    "title": "文章を書く",
+    "content": "学位論文に文章を加えるには，chapterフォルダの中にある.typファイル内を操作します． . こんにちは，世界． 今日はいい天気ですね． 明日は雨が降るかもしれません． . 出力結果 . | .typ内での改行は，出力結果に影響しません． | .typ内で2行改行すると，段落が切り替わります． | .typ内では，一文ごとに改行することを強く勧めます． これは，git上で差分管理する上で重要なことです． また，段落の切り替えは上記のように2行改行で対応してください． 強制改行コマンド\\や#linebreak()は極力使用しないでください． . ",
+    "url": "/basic/sentence.html#%E6%96%87%E7%AB%A0%E3%82%92%E6%9B%B8%E3%81%8F",
+    
+    "relUrl": "/basic/sentence.html#文章を書く"
+  },"13": {
+    "doc": "表の挿入",
+    "title": "表の挿入",
+    "content": " ",
+    "url": "/table/table.html",
+    
+    "relUrl": "/table/table.html"
+  }
+}
