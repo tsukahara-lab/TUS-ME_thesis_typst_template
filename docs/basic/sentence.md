@@ -67,6 +67,8 @@ nav_order: 1
 
     このとき，`chapter`フォルダ内に残った`discussion.typ`は残しておいても削除してもかまいませんが，`main.typ`内で認識させている他のファイルは削除してはいけません．
 
+---
+
 ## 文章を書く
 
 学位論文に文章を加えるには，`chapter`フォルダの中にある`.typ`ファイル内を操作します．
@@ -79,7 +81,7 @@ nav_order: 1
 ```
 
 {: .highlight }
-> 出力結果
+> **出力結果**
 > ![](../images/basic-sentence-fig1.png)
 
 
