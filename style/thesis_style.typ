@@ -402,7 +402,7 @@
 //                          COVER PAGE
 // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-#let number-to-zenkaku(num, nonumber: false) = {
+#let number-to-zenkaku(num, nonum: false) = {
   let zenkaku = ("０", "１", "２", "３", "４", "５", "６", "７", "８", "９")
   let hankaku = ("0", "1", "2", "3", "4", "5", "6", "7", "8", "9")
   let result = ""
@@ -411,7 +411,7 @@
       if hankaku.contains(c){
         result += zenkaku.at(int(c))
       }
-      else if nonumber{
+      else if nonum{
         result += "＊"
       }
     }
@@ -502,7 +502,7 @@
     [],
     {
       for value in authors{
-        number-to-zenkaku(value.student-id, nonumber: true) + h(2em) + value.name + linebreak()
+        number-to-zenkaku(value.student-id, nonum: true) + h(2em) + value.name + linebreak()
       }
     }
   )
@@ -680,6 +680,9 @@
 // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 //                        LOCAL FUNCTION
 // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+#let nonumber = <equate:revoke>
 
 // LATEX character
 #let LaTeX = {
