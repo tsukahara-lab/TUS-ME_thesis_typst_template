@@ -86,7 +86,6 @@ function initSearch() {
       lunr.tokenizer.separator = /[\s\-/]+/
 
       var index = lunr(function(){
-        this.use(lunr.ja);
         this.ref('id');
         this.field('title', { boost: 200 });
         this.field('content', { boost: 2 });
@@ -94,7 +93,7 @@ function initSearch() {
         this.metadataWhitelist = ['position']
 
         for (var i in docs) {
-
+          
           this.add({
             id: i,
             title: docs[i].title,
@@ -580,3 +579,5 @@ jtd.onReady(function(){
 });
 
 })(window.jtd = window.jtd || {});
+
+

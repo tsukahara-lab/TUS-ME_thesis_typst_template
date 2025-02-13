@@ -218,7 +218,8 @@
   }
 
   //リストの設定
-  set list(indent: 2em, body-indent: 0.75em, spacing: 1em)
+  set list(indent: 2em, body-indent: 0.75em, spacing: 1em, marker: ([•]))
+  set enum(indent: 2em, body-indent: 0.75em, spacing: 1em)
 
   //下線設定
   set underline(offset: 4pt)
@@ -515,8 +516,13 @@
 #let outline-page = {
 
   show outline.entry: it => {
-    let title = it.body.children
-    title.at(0)
+    if it.body.has("children"){
+      it.body.children.at(0)
+    }
+    else{
+      it.body
+    }
+
     context{
         let req_h = 150pt - here().position().x
         if req_h < (2em).to-absolute(){
