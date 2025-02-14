@@ -8,6 +8,9 @@ nav_order: 3
 # 数式
 {: .no_toc }
 
+数式の書き方について紹介します．
+数式文字などの具体的な表記法については，[公式ドキュメント](https://typst.app/docs/reference/math/)を参照してください．
+
 ## Table of contents
 {: .no_toc .text-delta }
 

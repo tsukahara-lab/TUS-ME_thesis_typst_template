@@ -74,7 +74,24 @@
         [節]
       }
     } else {
-      it
+      if it.has("element"){
+        if it.element.has("kind"){
+          if it.element.kind == "sub-figure"{
+            link(it.target)[
+              #numbering("a",it.element.counter.at(it.target).at(0))
+            ]
+          }
+          else{
+            it
+          }
+        }
+        else{
+          it
+        }
+      }
+      else{
+        it
+      }
     }
   }
 
@@ -145,14 +162,24 @@
   show figure.caption: it => {// if figure caption is image ...
     set par(leading: 4.5pt, justify: true)
     set text(size: 11.4pt)
+    set align(top)
     grid(
       columns: 2,
       {
+        if it.kind != "sub-figure"{// サブ図以外の場合，図番号を更新
+          counter(figure.where(kind: "sub-figure")).update(0)
+        }
+
         if it.kind == table{
           [Table ] + context counter(figure.where(kind: table)).display() + [　]
         }
         else if it.kind == raw{
           [Code ] + context counter(figure.where(kind: raw)).display() + [　]
+        }
+        else if it.kind == "sub-figure"{
+          it.supplement
+          context numbering("(a)", counter(figure.where(kind: "sub-figure")).get().at(0))
+          [　]
         }
         else{
           [Fig. ] + context counter(figure.where(kind: image)).display() + [　]
@@ -644,14 +671,15 @@
       if alert-contents != (){//アラートがある場合
         text(size: 1.2em, font: gothic, weight: "bold")[警告]
 
-        let appendix-first-page = query(heading.where(numbering: "A")).map(it => it.location().page()).at(0)
+        let tmp = query(heading.where(numbering: "A")).at(0)
+        let appendix-first-page = counter(page).at(tmp.location()).at(0)
 
         let alert-table = ()
         let num = 0
         for value in alert-contents{
           let set-fig-num = str(counter(heading).at(value.at(0)).at(0)) + "." + str(counter(figure.where(kind: image)).at(value.at(0)).at(0))
 
-          if appendix-first-page >= counter(page).at(value.at(0)).at(0){
+          if appendix-first-page <= counter(page).at(value.at(0)).at(0){
             set-fig-num = str(numbering("A", counter(heading).at(value.at(0)).at(0))) + "." + str(counter(figure.where(kind: image)).at(value.at(0)).at(0))
           }
 
@@ -765,7 +793,7 @@
             #figure(
               ..arg,
               placement: none
-            )
+            )#label
           ]
         }
         else{//図がページの半分以下のとき，上に配置
@@ -804,7 +832,7 @@
         #figure(
           ..arg,
           placement: none
-        )
+        )#label
       ]
     }
   }
