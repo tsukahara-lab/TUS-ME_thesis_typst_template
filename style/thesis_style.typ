@@ -192,32 +192,18 @@
     str(counter(heading).get().at(0)) + "." + str(num)
   )
   //表の設定
-  let pat-single = pattern(size: (30pt, 10pt), relative: "self")[
-    #v(0.25pt)
-    #stack(
-      line(start: (0%, 0%), end: (100%, 0%), stroke: 0.5pt),
-      spacing: 1.5pt
-    )
-  ]
-  let pat-double = pattern(size: (30pt, 10pt), relative: "self")[
-    #v(0.25pt)
-    #stack(
-      line(start: (0%, 0%), end: (100%, 0%), stroke: 0.5pt),
-      line(start: (0%, 0%), end: (100%, 0%), stroke: 0.5pt),
-      spacing: 1.5pt
-    )
-  ]
   let frame(stroke) = (x, y) => (
     left: if x > 0 { stroke } else { none },
     right: none,
-    top: if y == 0 { pat-double + 5pt } else if y == 1 { /* pat-single + 5pt  */ 0pt} else{ 0pt },
-    bottom: pat-single + 5pt,
+    top: if y == 0 { stroke } else if y == 1 { /* pat-single + 5pt  */ 0pt} else{ 0pt },
+    bottom: black + 0.5pt,
   )
   set table(stroke: none)
   set table(
     stroke: frame(black + 0.5pt),
+    row-gutter: (2pt, auto)
   )
-  set table.hline(stroke: pat-single + 5pt)
+  set table.hline(stroke: 0.5pt)
   set table.vline(stroke: 0.5pt)
 
   //コードの設定
@@ -883,4 +869,42 @@
     }
     output-arr
   })
+}
+
+#let tblr(
+  ..body,
+  columns: auto,
+  rows: auto,
+  gutter: auto,
+  column-gutter: auto,
+  row-gutter: auto,
+  align: auto,
+  fill: none,
+  stroke: auto,
+  inset: 0% + 5pt
+) = {
+
+  let output-array = body.pos()
+
+  let frame(stroke) = (x, y) => (
+    left: if x > 0 { stroke } else { none },
+    right: none,
+    top: if y == 0 or y == 1 { stroke } else { 0pt },
+    bottom: black + 0.5pt,
+  )
+
+  let stroke-out = stroke
+  if stroke-out == auto{
+    stroke-out = frame(black + 0.5pt)
+  }
+
+  let row-gutter-out = row-gutter
+  if row-gutter-out == auto{
+    row-gutter-out = (2pt, auto)
+  }
+
+  output-array.insert(0, table.cell(colspan: columns, inset: 0pt)[])
+
+  table(..output-array, columns: columns, stroke: stroke-out, fill: fill, gutter: gutter, column-gutter: column-gutter, row-gutter: (2pt, auto), inset: inset, align: align)
+
 }
