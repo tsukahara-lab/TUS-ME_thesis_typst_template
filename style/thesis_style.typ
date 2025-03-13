@@ -6,7 +6,8 @@
 #let codef = ("Noto Mono for Powerline")
 
 // 日本語間のコード改行
-#let cjkre = regex("[ ]*([\p{Han}\p{Hiragana}\p{Katakana}]+(?:[,\(\)][ ]*[\p{Han}\p{Hiragana}\p{Katakana}]+)*)[ ]*")
+#let cjkre = regex("([\u3000-\u303F\u3040-\u30FF\u31F0-\u31FF\u3200-\u9FFF\uFF00-\uFFEF][　！”＃＄％＆’（）*+，−．／：；＜＝＞？＠［＼］＾＿｀｛｜｝〜、。￥・]*)[ ]+([\u3000-\u303F\u3040-\u30FF\u31F0-\u31FF\u3200-\u9FFF\uFF00-\uFFEF])[ ]*")
+
 
 // コメント内容
 #let comment-content-arr = state("comment-content-arr", ())
@@ -93,6 +94,11 @@
         it
       }
     }
+  }
+
+  show link: it => {
+    //set text(fill: blue)
+    it
   }
 
   show heading.where(level: 1): (it => {
@@ -543,16 +549,17 @@
 #let outline-page = {
 
   show outline.entry: it => {
-    if it.body.has("children"){
-      it.body.children.at(0)
-    }
-    else{
-      it.body
-    }
+
+    set par(first-line-indent: 0em)
+
+    let indent-size = 1em * (it.level - 1)
+    h(indent-size)
+
+    link(it.element.location(),it.prefix())
 
     context{
         let req_h = 150pt - here().position().x
-        if req_h < (2em).to-absolute(){
+        if req_h < 2em.to-absolute(){
           req_h = 2em
         }
         h(req_h)
@@ -560,30 +567,26 @@
     link(it.element.location(),it.element.body)
     h(1em)
     it.fill
-    it.page
+    link(it.element.location(),it.page())
+    linebreak()
   }
 
   show outline.entry.where(level: 1): it => {
 
-    let title = ()
-    if it.body.has("children"){
-      title = it.body.children
-    }
-    else{
-      title = (it.body, )
-    }
+    set par(first-line-indent: 0em)
 
     if it.element.numbering != none{
 
       if it.element.numbering == "A"{
-        [付録] + title.at(0)
+        [付録] + link(it.element.location(),it.prefix())
       }
       else{
-        [第] + title.at(0) + [章]
+        [第] + link(it.element.location(),it.prefix()) + [章]
       }
+
       context{
         let req_h = 150pt - here().position().x
-        if req_h < (2em).to-absolute(){
+        if req_h < 2em.to-absolute(){
           req_h = 2em
         }
         h(req_h)
@@ -592,17 +595,16 @@
       link(it.element.location(),it.element.body)
     }
     else{
-      link(it.element.location(),title.at(0))
+      link(it.element.location(),it.body())
     }
     h(1em)
     it.fill
-    it.page
+    link(it.element.location(),it.page())
+    linebreak()
   }
 
-  outline(
-    indent: 1em,
-    fill: box(width: 1fr, repeat(h(2pt) + sym.dot.c + h(2pt))) + h(8pt),
-  )
+  set outline.entry(fill: box(width: 1fr, repeat(h(2pt) + sym.dot.c + h(2pt))) + h(8pt))
+  outline()
 }
 
 // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
