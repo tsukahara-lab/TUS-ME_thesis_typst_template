@@ -18,6 +18,10 @@
 #import "@preview/physica:0.9.4": *
 #import "@preview/unify:0.7.0": *
 
+//　文献パッケージ
+#import "@preview/enja-bib:0.1.0": *
+#import bib-setting-jsme: *
+
 // 初期設定
 #let thesis_init(body) = {
 
@@ -242,6 +246,9 @@
 
   //下線設定
   set underline(offset: 4pt)
+
+  //文献設定
+  show: bib-init
 
   // 日本語間のコード改行を無効化
   show cjkre: it => it.text.match(cjkre).captures.at(0)
@@ -602,6 +609,8 @@
   // 行番号の設定
   set par.line(numbering: n => text(size: 8pt, font: codef)[#n], numbering-scope: "page",number-clearance: 10pt)
 
+  body
+
   // チェックページの有効化
   let check-page = true
   if check-page{
@@ -688,8 +697,6 @@
 
     }
   }
-
-  body
 }
 
 
@@ -873,6 +880,7 @@
   })
 }
 
+// 学位論文用の表作成関数
 #let tblr(
   ..body,
   columns: auto,
