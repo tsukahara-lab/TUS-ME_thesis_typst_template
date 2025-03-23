@@ -1,7 +1,5 @@
 #import "style/thesis_style.typ": *
-#import "bib_style/bib_style.typ": *
 #show: thesis_init
-#show: bib_init
 
 // 提出時にはコメントアウトすること
 #show: check-contents
@@ -22,6 +20,7 @@
   )
 )
 
+// 目次
 #outline-page
 
 //記号表
@@ -50,7 +49,7 @@
 #include "chapter/acknowledgement.typ"
 
 //参考文献
-#include "bib.typ"
+#include "bibliography/bibliography.typ"
 
 //付録
 #show: thesis-appendix
