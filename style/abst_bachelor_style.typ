@@ -88,9 +88,6 @@
       align(left)[#it.body]
     )
   }
-  set figure(numbering: num =>
-    str(counter(heading).get().at(0)) + "." + str(num)
-  )
   //表の設定
   let frame(stroke) = (x, y) => (
     left: if x > 0 { stroke } else { none },
