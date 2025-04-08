@@ -88,9 +88,6 @@
       align(left)[#it.body]
     )
   }
-  set figure(numbering: num =>
-    str(counter(heading).get().at(0)) + "." + str(num)
-  )
   //表の設定
   let frame(stroke) = (x, y) => (
     left: if x > 0 { stroke } else { none },
@@ -199,8 +196,6 @@
     }
   )
 
-  v(1.66em)
-
 }
 
 #let check-contents(body) = {
@@ -213,6 +208,9 @@
 
 #let spacing-body(body) = {
 
+  hide[　]
+  //v(1.66em)
+
   for value in body.children{
     if value.func() != text and value != [ ]{
       value
@@ -221,8 +219,20 @@
       //none
     }
     else{
+      let bef_char = ""
       for char in value.text{
-        char + h(4pt, weak: true)
+        if (regex("[\u3000-\u303F\u3040-\u30FF\u31F0-\u31FF\u3200-\u9FFF\uFF00-\uFFEF　！”＃＄％＆’（）*+，−．／：；＜＝＞？＠［＼］＾＿｀｛｜｝〜、。￥・―]") in char){
+          char + h(4pt, weak: true)
+        }
+        else{
+          if bef_char == "（"{
+            h(-4pt) + char
+          }
+          else{
+            char// + h(4pt, weak: true)
+          }
+        }
+        bef_char = char
       }
     }
   }
