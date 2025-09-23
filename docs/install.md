@@ -32,7 +32,7 @@ nav_order: 2
 
 1. このテンプレートをcloneする
     ```bash
-    https://github.com/tkrhsmt/TUS-ME_thesis_typst_template.git
+    git clone git@github.com:tsukahara-lab/TUS-ME_thesis_typst_template.git
     ```
 
 1. remote設定を書き換える
