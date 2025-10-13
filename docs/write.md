@@ -17,7 +17,7 @@ nav_order: 3
 
 ## pdfを出力する
 
-### Typst Tiministを使用する場合
+### Typst Tinymistを使用する場合
 
 1. `main.typ`を開く
 1. VScode上のpdfアイコンをクリックする

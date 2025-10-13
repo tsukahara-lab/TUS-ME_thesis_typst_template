@@ -25,13 +25,13 @@ nav_order: 2
 
 ## Typstの準備
 
-1. VSCodeの拡張機能で`Typst`を検索し，`Typst Timinist`をインストールする
+1. VSCodeの拡張機能で`Typst`を検索し，`Typst Tinymist`をインストールする
     ![](images/vscode_typst_extension.png)
 
 
 ## Typstコマンドの設定
 
-通常，Typstを使用する際にはTypst Tiministを使用しますが，本テンプレートで差分を取る際には，`typst`コマンドを使用します．
+通常，Typstを使用する際にはTypst Tinymistを使用しますが，本テンプレートで差分を取る際には，`typst`コマンドを使用します．
 このため，以下の手順でTypstコマンドを使用できるようにします．
 
 ### MacOSの場合
