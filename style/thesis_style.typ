@@ -41,6 +41,7 @@
     justify: true,
     first-line-indent: 1em,
     leading: 1em,
+    spacing: 1em
   )
 
   // テキスト設定
@@ -493,6 +494,7 @@
   set page(
     margin: (left: 25mm, right: 10mm, top: 25mm, bottom: 15mm),
   )
+  set par(spacing: 1.2em)
   set align(center)
   v(12em)
   number-to-zenkaku(year) + [年度]
@@ -566,7 +568,7 @@
 
   show outline.entry.where(level: 1): it => {
 
-    set par(first-line-indent: 0em)
+    set par(first-line-indent: 0em, spacing: 1.2em)
 
     if it.element.numbering != none{
 
