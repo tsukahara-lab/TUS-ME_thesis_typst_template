@@ -22,7 +22,7 @@ nav_order: 4
 本テンプレートでは，`enja-bib`パッケージを使用して，英語文献と日本語文献の両方に対応しています．
 テンプレートのスタイルは日本機械学会のフォーマットに準拠しています．
 本スタイルは[LaTeXのbst](https://github.com/Yuki-MATSUKAWA/JSME-bst)を参考に作成されており，具体的なエントリの書き方もほとんど同様です．
-上記のリポジトリのマニュアルを参考にしてエントリを作成してください．
+[上記のリポジトリのマニュアル](https://github.com/Yuki-MATSUKAWA/JSME-bst/blob/main/JSME-template1.pdf)を参考にしてエントリを作成してください．
 以下では，簡単な例を示します．
 
 ### 英語文献の場合
