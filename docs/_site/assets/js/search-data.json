@@ -6,496 +6,524 @@
     
     "relUrl": "/basic/basic.html"
   },"1": {
+    "doc": "参考文献",
+    "title": "参考文献",
+    "content": " ",
+    "url": "/basic/biblio.html",
+    
+    "relUrl": "/basic/biblio.html"
+  },"2": {
+    "doc": "参考文献",
+    "title": "Table of contents",
+    "content": ". | 参考文献の書き方 . | 英語文献の場合 | 日本語文献の場合 | . | 参考文献の引用 . | 文中での引用 | 文末での引用 | . | . ",
+    "url": "/basic/biblio.html#table-of-contents",
+    
+    "relUrl": "/basic/biblio.html#table-of-contents"
+  },"3": {
+    "doc": "参考文献",
+    "title": "参考文献の書き方",
+    "content": "参考文献は，refs.bibファイル内にBibTeX形式で記述します． 本テンプレートでは，enja-bibパッケージを使用して，英語文献と日本語文献の両方に対応しています． テンプレートのスタイルは日本機械学会のフォーマットに準拠しています． 本スタイルはLaTeXのbstを参考に作成されており，具体的なエントリの書き方もほとんど同様です． 上記のリポジトリのマニュアルを参考にしてエントリを作成してください． 以下では，簡単な例を示します． . 英語文献の場合 . 以下は，英語文献における参考文献の例です． . @article{Reynolds:PhilTransRoySoc1883, author = {Reynolds, Osborne}, title = {An experimental investigation of the circumstances which determine whether the motion of water shall be direct or sinuous, and of the law of resistance in parallel channels}, journal = {Philosophical Transactions of the Royal Society of London}, volume = {174}, number = {}, pages = {935--982}, year = {1883}, doi = {10.1098/rstl.1883.0029}, url = {https://royalsocietypublishing.org/doi/abs/10.1098/rstl.1883.0029} } . 日本語文献の場合 . 日本語文献における参考文献の例は以下の通りです． . @article{塚原:ながれ2023, author = {塚原, 隆裕}, yomi = {Tsukahara, Takahiro}, title = {私の「ながれを学ぶ」使命感}, journal = {ながれ：日本流体力学会誌}, volume = {42}, number = {3}, pages = {222}, year = {2023}, url = {https://www.nagare.or.jp/publication/nagare/archive/2023/3.html} } . 日本語の場合，yomiフィールドを追加する必要があります． これは，日本語文献を英語文献と同様にアルファベット順でソートするために必要です． yomiフィールドには，上記の例のように著者名のローマ字表記を記述します． . ",
+    "url": "/basic/biblio.html#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE%E3%81%AE%E6%9B%B8%E3%81%8D%E6%96%B9",
+    
+    "relUrl": "/basic/biblio.html#参考文献の書き方"
+  },"4": {
+    "doc": "参考文献",
+    "title": "参考文献の引用",
+    "content": "文書で参考文献を引用するには，@Reynolds:PhilTransRoySoc1883のように@に続けてBibTeXエントリのキーを記述します． これは最も簡易的な方法であり，以下のような書き方をするとより厳格な設定が可能です． . 文中での引用 . 文の途中で引用する場合は，以下のようにします． . #citet(&lt;Reynolds:PhilTransRoySoc1883&gt;) . これにより，Reynolds (1883)のように表示されます． 複数の文献を引用する場合は，以下のようにカンマで区切って記述します． . #citet(&lt;Reynolds:PhilTransRoySoc1883&gt;, &lt;塚原:ながれ2023&gt;) . 文末での引用 . 文末で引用する場合は，以下のようにします． . #citep(&lt;Reynolds:PhilTransRoySoc1883&gt;) . これにより，(Reynolds, 1883)のように表示されます． 複数の文献を引用する場合は，以下のようにカンマで区切って記述します． . #citep(&lt;Reynolds:PhilTransRoySoc1883&gt;, &lt;塚原:ながれ2023&gt;) . ",
+    "url": "/basic/biblio.html#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE%E3%81%AE%E5%BC%95%E7%94%A8",
+    
+    "relUrl": "/basic/biblio.html#参考文献の引用"
+  },"5": {
     "doc": "CeTZで書く",
     "title": "CeTZで書く",
     "content": "ここでは，CeTZで図を書く方法について紹介します . ",
     "url": "/figure/draw/cetz.html",
     
     "relUrl": "/figure/draw/cetz.html"
-  },"2": {
+  },"6": {
     "doc": "CeTZで書く",
     "title": "Table of contents",
     "content": ". ",
     "url": "/figure/draw/cetz.html#table-of-contents",
     
     "relUrl": "/figure/draw/cetz.html#table-of-contents"
-  },"3": {
+  },"7": {
     "doc": "コメントの書き方",
     "title": "コメントの書き方",
     "content": "学位論文は，背景から順番に書いていくわけではありません． そのため，後で修正したい箇所や，追加したい箇所が出てくることがあります． そのようなときに，コメントを書いておくと便利です． 本テンプレートには，コメントを書くためのコマンドを用意しています． . ",
     "url": "/comment.html",
     
     "relUrl": "/comment.html"
-  },"4": {
+  },"8": {
     "doc": "コメントの書き方",
     "title": "タイトルのないコメント",
     "content": "タイトルのないコメントは以下のように書きます． . #comment[ ここにコメントを書きます． ] . ",
     "url": "/comment.html#%E3%82%BF%E3%82%A4%E3%83%88%E3%83%AB%E3%81%AE%E3%81%AA%E3%81%84%E3%82%B3%E3%83%A1%E3%83%B3%E3%83%88",
     
     "relUrl": "/comment.html#タイトルのないコメント"
-  },"5": {
+  },"9": {
     "doc": "コメントの書き方",
     "title": "タイトルのあるコメント",
     "content": "タイトルのあるコメントは以下のように書きます． . #comment(title: [コメントのタイトル])[ ここにコメントを書きます． ] . コメントは，最終版に含めてはいけません． このため，コメントを含むファイルをコンパイルすると，最終ページにコメント一覧が表示されます． 最終版では，このコメントが全てなくなるようにしてください． . ",
     "url": "/comment.html#%E3%82%BF%E3%82%A4%E3%83%88%E3%83%AB%E3%81%AE%E3%81%82%E3%82%8B%E3%82%B3%E3%83%A1%E3%83%B3%E3%83%88",
     
     "relUrl": "/comment.html#タイトルのあるコメント"
-  },"6": {
+  },"10": {
     "doc": "差分の取り方",
     "title": "差分の取り方",
     "content": "本テンプレートでは，差分を取るためのコマンドを用意しています． 差分を取るためには，typstコマンドが使用できる環境が必要です． 本テンプレートのルートディレクトリで.shスクリプトを実行してください． . 差分を取るには，typstコマンドが使用できる環境が必要です． typstコマンドのインストール方法については，環境構築を参照してください． . ",
     "url": "/diff.html",
     
     "relUrl": "/diff.html"
-  },"7": {
+  },"11": {
     "doc": "差分の取り方",
     "title": "卒論本体の差分",
     "content": "bash diff.sh main.typ &lt;ハッシュ値&gt; . &lt;ハッシュ値&gt;にgitで管理しているハッシュ値を入れます． 上記のスクリプトを実行すると，現在のmain.typの内容と&lt;ハッシュ値&gt;の内容の差分ファイルdiff.pdfを作成します． . ",
     "url": "/diff.html#%E5%8D%92%E8%AB%96%E6%9C%AC%E4%BD%93%E3%81%AE%E5%B7%AE%E5%88%86",
     
     "relUrl": "/diff.html#卒論本体の差分"
-  },"8": {
+  },"12": {
     "doc": "差分の取り方",
     "title": "アブストラクトの差分",
     "content": "卒業論文のアブストラクトの差分を取る場合には，以下のコマンドを使用します． . bash diff.sh abstract/abst_bachelor.typ &lt;ハッシュ値&gt; . 修士論文のアブストラクトの差分を取る場合には，以下のコマンドを使用します． . bash diff.sh abstract/abst_master.typ &lt;ハッシュ値&gt; . ",
     "url": "/diff.html#%E3%82%A2%E3%83%96%E3%82%B9%E3%83%88%E3%83%A9%E3%82%AF%E3%83%88%E3%81%AE%E5%B7%AE%E5%88%86",
     
     "relUrl": "/diff.html#アブストラクトの差分"
-  },"9": {
+  },"13": {
     "doc": "fig",
     "title": "fig",
     "content": "図や表を，学位論文の適切な位置へ配置します． ただし，図や表の組み合わせが最適とならない場合がありますので，その場合はfigure環境を利用してください． . 例 . #fig( image(\"../figure/image.svg\"), caption: [sample of image.], label: &lt;sample&gt;, ) . | . 引数 . body content . image関数など，図を入れます． . caption none content . キャプションを書きます．デフォルトでは何も描画しませんが，学位論文では必ず書いてください． また，キャプションの文言は図が何を表しているのかを英語で書いてください． キャプションは文のため，最後は必ずピリオドで終わります． . デフォルト： none . placement auto alignment . 図の配置を決定します． デフォルトでは，図を学位論文中の最適な位置へ配置します． 学位論文の章はじまりのページはbottomに配置し，それ以外ではtopに配置します． 図が大きい場合は単独ページpageとなります． . 使用できるalignmentは，auto，top，bottom，pageのみです． . デフォルト：auto . label none label . ラベルを書きます．これによって，参照が可能となります． 学位論文では，必ず文章中で参照をしてください． 参照をしていない図が見つかった場合は，学位論文のトップに警告文が出ます． . デフォルト： none . ",
     "url": "/figure/fig1.html",
     
     "relUrl": "/figure/fig1.html"
-  },"10": {
+  },"14": {
     "doc": "図が1枚のとき",
     "title": "図が1枚のとき",
     "content": "図が1枚のときの例です． 以下の例をそのまま貼り付けて使用できます． . ",
     "url": "/figure/fig2.html",
     
     "relUrl": "/figure/fig2.html"
-  },"11": {
+  },"15": {
     "doc": "図が1枚のとき",
     "title": "Table of contents",
     "content": ". | 配置を自動で行う | 図をページ上部に配置する | 図をページ下部に配置する | 図を単独ページに配置する | . ",
     "url": "/figure/fig2.html#table-of-contents",
     
     "relUrl": "/figure/fig2.html#table-of-contents"
-  },"12": {
+  },"16": {
     "doc": "図が1枚のとき",
     "title": "配置を自動で行う",
     "content": "#fig( image(\"../figure/image.svg\"), caption: [sample of image.], label: &lt;sample&gt;, ) . | . 自動配置は，いつでも最適な位置に配置させるわけではありません． 望まない位置に配置された場合，以下の例のように手動でplacementを定義する必要があります． . ",
     "url": "/figure/fig2.html#%E9%85%8D%E7%BD%AE%E3%82%92%E8%87%AA%E5%8B%95%E3%81%A7%E8%A1%8C%E3%81%86",
     
     "relUrl": "/figure/fig2.html#配置を自動で行う"
-  },"13": {
+  },"17": {
     "doc": "図が1枚のとき",
     "title": "図をページ上部に配置する",
     "content": "#fig( image(\"../figure/image.svg\"), caption: [sample of image.], label: &lt;sample&gt;, placement: top, ) . | . ",
     "url": "/figure/fig2.html#%E5%9B%B3%E3%82%92%E3%83%9A%E3%83%BC%E3%82%B8%E4%B8%8A%E9%83%A8%E3%81%AB%E9%85%8D%E7%BD%AE%E3%81%99%E3%82%8B",
     
     "relUrl": "/figure/fig2.html#図をページ上部に配置する"
-  },"14": {
+  },"18": {
     "doc": "図が1枚のとき",
     "title": "図をページ下部に配置する",
     "content": "この設定は，通常使用しません． ページ下部に設定するのは，章の先頭のページに限られます． また，abstractなどで使用する可能性があります． . #fig( image(\"../figure/image.svg\"), caption: [sample of image.], label: &lt;sample&gt;, placement: bottom, ) . | . ",
     "url": "/figure/fig2.html#%E5%9B%B3%E3%82%92%E3%83%9A%E3%83%BC%E3%82%B8%E4%B8%8B%E9%83%A8%E3%81%AB%E9%85%8D%E7%BD%AE%E3%81%99%E3%82%8B",
     
     "relUrl": "/figure/fig2.html#図をページ下部に配置する"
-  },"15": {
+  },"19": {
     "doc": "図が1枚のとき",
     "title": "図を単独ページに配置する",
     "content": "この設定は，図が大きいとき，図の数が多いとき，あるいは図が既に単独で章の最終ページにありtopに配置されてしまっている場合に限られます． 図が1枚の場合では，図が大きい場合，あるいは章の最終ページにありtopに配置されている場合にのみ使用することとなります． 単独ページに配置する図が多くなると，見づらい論文になるため注意が必要です． . #fig( image(\"../figure/image.svg\"), caption: [sample of image.], label: &lt;sample&gt;, placement: page, ) . | . ",
     "url": "/figure/fig2.html#%E5%9B%B3%E3%82%92%E5%8D%98%E7%8B%AC%E3%83%9A%E3%83%BC%E3%82%B8%E3%81%AB%E9%85%8D%E7%BD%AE%E3%81%99%E3%82%8B",
     
     "relUrl": "/figure/fig2.html#図を単独ページに配置する"
-  },"16": {
+  },"20": {
     "doc": "図が2枚のとき",
     "title": "図が2枚のとき",
     "content": "図が2枚のときの例です． 以下の例をそのまま貼り付けて使用できます． . ",
     "url": "/figure/fig3.html",
     
     "relUrl": "/figure/fig3.html"
-  },"17": {
+  },"21": {
     "doc": "図が2枚のとき",
     "title": "Table of contents",
     "content": ". | 配置を自動で行う . | 横に配置するとき | 縦に配置するとき | . | 異なる図番号の図を単独ページに配置するとき | 異なる図番号の図を横に配置するとき | . ",
     "url": "/figure/fig3.html#table-of-contents",
     
     "relUrl": "/figure/fig3.html#table-of-contents"
-  },"18": {
+  },"22": {
     "doc": "図が2枚のとき",
     "title": "配置を自動で行う",
     "content": "横に配置するとき . #fig( grid( columns: (50%, 50%), [ #figure( image(\"../figure/image-A.svg\"), caption: [sample A], kind: \"sub-figure\", supplement: [], )&lt;sample-A&gt; ], [ #figure( image(\"../figure/image-B.svg\"), caption: [sample B], kind: \"sub-figure\", supplement: [], )&lt;sample-B&gt; ] ), caption: [sample of image.], label: &lt;sample&gt;, ) . | . 縦に配置するとき . #fig( grid( columns: (100%), [ #figure( image(\"../figure/image-A.svg\"), caption: [sample A], kind: \"sub-figure\", supplement: [], )&lt;sample-A&gt; ], [ #figure( image(\"../figure/image-B.svg\"), caption: [sample B], kind: \"sub-figure\", supplement: [], )&lt;sample-B&gt; ] ), caption: [sample of image.], label: &lt;sample&gt;, ) . | . 上記の設定では自動配置の例を示していますが，最も外側のfig関数にplacementを指定することで手動で配置することもできます． 配置の注意については，図が1枚のときを参照してください． . ",
     "url": "/figure/fig3.html#%E9%85%8D%E7%BD%AE%E3%82%92%E8%87%AA%E5%8B%95%E3%81%A7%E8%A1%8C%E3%81%86",
     
     "relUrl": "/figure/fig3.html#配置を自動で行う"
-  },"19": {
+  },"23": {
     "doc": "図が2枚のとき",
     "title": "異なる図番号の図を単独ページに配置するとき",
     "content": ". | スペースの関係で，異なる図番号の複数の図を単独ページに配置したいときがあります． このとき，一番外側にfig関数を利用し，内側はfigure関数を利用します． | fig関数ではkindを\"none\"に，supplementを[]として指定します． | 単独ページとするには，placementをpageに指定します． | . #fig( grid( columns: (100%), [ #figure( image(\"../figure/image-A.svg\"), caption: [sample A], )&lt;sample-A&gt; ], [ #figure( image(\"../figure/image-B.svg\"), caption: [sample B], )&lt;sample-B&gt; ] ), kind: \"none\", supplement: [], placement: page ) . | . ",
     "url": "/figure/fig3.html#%E7%95%B0%E3%81%AA%E3%82%8B%E5%9B%B3%E7%95%AA%E5%8F%B7%E3%81%AE%E5%9B%B3%E3%82%92%E5%8D%98%E7%8B%AC%E3%83%9A%E3%83%BC%E3%82%B8%E3%81%AB%E9%85%8D%E7%BD%AE%E3%81%99%E3%82%8B%E3%81%A8%E3%81%8D",
     
     "relUrl": "/figure/fig3.html#異なる図番号の図を単独ページに配置するとき"
-  },"20": {
+  },"24": {
     "doc": "図が2枚のとき",
     "title": "異なる図番号の図を横に配置するとき",
     "content": "以下の方法はページ数を節約するために使用されますが，学位論文の場合はページ数に制限がないため，基本的に使用しないようにしてください． ただし，ページ数制約のあるabstractの作成時などには使用する可能性があります． . #fig( grid( columns: (50%, 50%), [ #figure( image(\"../figure/image-A.svg\"), caption: [sample A], )&lt;sample-A&gt; ], [ #figure( image(\"../figure/image-B.svg\"), caption: [sample B], )&lt;sample-B&gt; ] ), kind: \"none\", supplement: [], ) . | . ",
     "url": "/figure/fig3.html#%E7%95%B0%E3%81%AA%E3%82%8B%E5%9B%B3%E7%95%AA%E5%8F%B7%E3%81%AE%E5%9B%B3%E3%82%92%E6%A8%AA%E3%81%AB%E9%85%8D%E7%BD%AE%E3%81%99%E3%82%8B%E3%81%A8%E3%81%8D",
     
     "relUrl": "/figure/fig3.html#異なる図番号の図を横に配置するとき"
-  },"21": {
+  },"25": {
     "doc": "図が3枚のとき",
     "title": "図が3枚のとき",
     "content": "図が3枚のときの例です． 以下の例をそのまま貼り付けて使用できます． . ",
     "url": "/figure/fig4.html",
     
     "relUrl": "/figure/fig4.html"
-  },"22": {
+  },"26": {
     "doc": "図が3枚のとき",
     "title": "Table of contents",
     "content": ". | 配置を自動で行う . | 横に配置するとき | 2個を横に配置し，1個を縦に配置するとき | すべて縦に配置するとき | . | . ",
     "url": "/figure/fig4.html#table-of-contents",
     
     "relUrl": "/figure/fig4.html#table-of-contents"
-  },"23": {
+  },"27": {
     "doc": "図が3枚のとき",
     "title": "配置を自動で行う",
     "content": "横に配置するとき . #fig( grid( columns: (auto, auto, auto), column-gutter: 2%, [ #figure( image(\"../figure/image-A.svg\"), caption: [sample A], kind: \"sub-figure\", supplement: [], )&lt;sample-A&gt; ], [ #figure( image(\"../figure/image-B.svg\"), caption: [sample B], kind: \"sub-figure\", supplement: [], )&lt;sample-B&gt; ], [ #figure( image(\"../figure/image-C.svg\"), caption: [sample C], kind: \"sub-figure\", supplement: [], )&lt;sample-C&gt; ] ), caption: [sample of image.], label: &lt;sample&gt;, ) . | . 2個を横に配置し，1個を縦に配置するとき . #fig( grid( columns: (auto, auto), column-gutter: 2%, [ #figure( image(\"../figure/image-A.svg\"), caption: [sample A], kind: \"sub-figure\", supplement: [], )&lt;sample-A&gt; ], [ #figure( image(\"../figure/image-B.svg\"), caption: [sample B], kind: \"sub-figure\", supplement: [], )&lt;sample-B&gt; ], grid.cell(colspan: 2,[ #figure( image(\"../figure/image-C.svg\"), caption: [sample C], kind: \"sub-figure\", supplement: [], )&lt;sample-C&gt; ]) ), caption: [sample of image.], label: &lt;sample&gt;, ) . | . grid.cell(colspan: 2, ..)を利用すると，中心位置に要素を寄せることができます． これは，図の数が増えても同じです． . すべて縦に配置するとき . #fig( grid( columns: (auto), column-gutter: 2%, [ #figure( image(\"../figure/image-A.svg\"), caption: [sample A], kind: \"sub-figure\", supplement: [], )&lt;sample-A&gt; ], [ #figure( image(\"../figure/image-B.svg\"), caption: [sample B], kind: \"sub-figure\", supplement: [], )&lt;sample-B&gt; ], [ #figure( image(\"../figure/image-C.svg\"), caption: [sample C], kind: \"sub-figure\", supplement: [], )&lt;sample-C&gt; ] ), caption: [sample of image.], label: &lt;sample&gt;, ) . | . 上記の設定では自動配置の例を示していますが，最も外側のfig関数にplacementを指定することで手動で配置することもできます． 配置の注意については，図が1枚のときを参照してください． . ",
     "url": "/figure/fig4.html#%E9%85%8D%E7%BD%AE%E3%82%92%E8%87%AA%E5%8B%95%E3%81%A7%E8%A1%8C%E3%81%86",
     
     "relUrl": "/figure/fig4.html#配置を自動で行う"
-  },"24": {
+  },"28": {
     "doc": "図が4枚以上のとき",
     "title": "図が4枚以上のとき",
     "content": "図が4枚以上のときの例です． 以下の例をそのまま貼り付けて使用できます． 4枚以上のときは，横に並べる数を2個か3個に制限することを勧めます． これ以上小さくなると，見づらいためです． . ",
     "url": "/figure/fig5.html",
     
     "relUrl": "/figure/fig5.html"
-  },"25": {
+  },"29": {
     "doc": "図が4枚以上のとき",
     "title": "Table of contents",
     "content": ". | 配置を自動で行う . | 2個ずつ並べるとき | 3個ずつ並べるとき | . | . ",
     "url": "/figure/fig5.html#table-of-contents",
     
     "relUrl": "/figure/fig5.html#table-of-contents"
-  },"26": {
+  },"30": {
     "doc": "図が4枚以上のとき",
     "title": "配置を自動で行う",
     "content": "2個ずつ並べるとき . #fig( grid( columns: (auto, auto), column-gutter: 5%, [ #figure( image(\"../figure/image-A.svg\"), caption: [sample A], kind: \"sub-figure\", supplement: [], )&lt;sample-A&gt; ], [ #figure( image(\"../figure/image-B.svg\"), caption: [sample B], kind: \"sub-figure\", supplement: [], )&lt;sample-B&gt; ], [ #figure( image(\"../figure/image-C.svg\"), caption: [sample C], kind: \"sub-figure\", supplement: [], )&lt;sample-C&gt; ], [ #figure( image(\"../figure/image-D.svg\"), caption: [sample D], kind: \"sub-figure\", supplement: [], )&lt;sample-D&gt; ] ), caption: [sample of image.], label: &lt;sample&gt;, ) . | . 3個ずつ並べるとき . #fig( grid( columns: (auto, auto, auto), column-gutter: 2%, [ #figure( image(\"../figure/image-A.svg\"), caption: [sample A], kind: \"sub-figure\", supplement: [], )&lt;sample-A&gt; ], [ #figure( image(\"../figure/image-B.svg\"), caption: [sample B], kind: \"sub-figure\", supplement: [], )&lt;sample-B&gt; ], [ #figure( image(\"../figure/image-C.svg\"), caption: [sample C], kind: \"sub-figure\", supplement: [], )&lt;sample-C&gt; ], [ #figure( image(\"../figure/image-D.svg\"), caption: [sample D], kind: \"sub-figure\", supplement: [], )&lt;sample-D&gt; ] ), caption: [sample of image.], label: &lt;sample&gt;, ) . | . これ以上図の数が増えたときでも，上記の例をコピーして要素を増やせば使用できます． . ",
     "url": "/figure/fig5.html#%E9%85%8D%E7%BD%AE%E3%82%92%E8%87%AA%E5%8B%95%E3%81%A7%E8%A1%8C%E3%81%86",
     
     "relUrl": "/figure/fig5.html#配置を自動で行う"
-  },"27": {
+  },"31": {
     "doc": "図の書き方",
     "title": "図の書き方",
     "content": "ここでは，図を書く方法について紹介します． 図を書く方法は様々ありますが，ここでは学位論文で使える図を書く有用な方法を3つ紹介します． どの方法も一長一短ですので，自分に合ったものを選びましょう． . ",
     "url": "/figure/fig_draw.html",
     
     "relUrl": "/figure/fig_draw.html"
-  },"28": {
+  },"32": {
     "doc": "図の書き方",
     "title": "PowerPoint",
     "content": ". | PowerPointは，Microsoft社が提供しているプレゼンテーションツールです． | 書ける図にはある程度制約がありますが，一度は使ったことがあるソフトだと思うので，学習コストは低いです． | キレイな図・論文に入れる図を書くのは，非常に難しい可能性があります．特に，論文中のフォントやフォントサイズと揃えるには細心の注意を払う必要があります． | 数式がキレイに書けません． | . ",
     "url": "/figure/fig_draw.html#powerpoint",
     
     "relUrl": "/figure/fig_draw.html#powerpoint"
-  },"29": {
+  },"33": {
     "doc": "図の書き方",
     "title": "Inkscape",
     "content": ". | Inkscapeは，Adobe Illustratorの無料版のような心地で使えます． | PowerPointよりも，より複雑な図を簡単に作成できます． | 多くの人が使ったことがないツールだと思うので，PowerPointよりは学習コストが高いですが，GUIで操作するため直感的に操作できるはずです． | キレイな図は書けますが，論文中のフォントやフォントサイズと揃えるには最新の注意を払う必要があります． | 数式の入力がやや面倒です． | . ",
     "url": "/figure/fig_draw.html#inkscape",
     
     "relUrl": "/figure/fig_draw.html#inkscape"
-  },"30": {
+  },"34": {
     "doc": "図の書き方",
     "title": "CeTZ",
     "content": ". | Typstで直接図を書く方法です． | キレイな図が書け，論文中のフォント等に注意しなくとも自動的に適用されます． | 数式の入力が容易です． | コマンドで図を書くため，他の方法と比べるとやや学習コストが高いです． | . ",
     "url": "/figure/fig_draw.html#cetz",
     
     "relUrl": "/figure/fig_draw.html#cetz"
-  },"31": {
+  },"35": {
     "doc": "図の挿入",
     "title": "図の挿入",
     "content": " ",
     "url": "/figure/figure.html",
     
     "relUrl": "/figure/figure.html"
-  },"32": {
+  },"36": {
     "doc": "グラフの書き方",
     "title": "グラフの書き方",
     "content": "ここでは，グラフを書く方法について紹介します． グラフを書く方法は様々ありますが，ここでは学位論文で使えるグラフを書く有用な方法を3つ紹介します． どの方法も一長一短ですので，自分に合ったものを選びましょう． . グラフを作る際に，Excelを利用するのは極力控えましょう． Excelは容易にグラフを作成できますが，論文の体裁に整えるのは非常に難しいです． . ",
     "url": "/figure/graph_draw.html",
     
     "relUrl": "/figure/graph_draw.html"
-  },"33": {
+  },"37": {
     "doc": "グラフの書き方",
     "title": "matlab",
     "content": ". | プログラミング言語matlabを利用する方法です． | キレイなグラフは書けますが，論文中のフォントやフォントサイズと揃えるには最新の注意を払う必要があります． | 有料言語なため，購入しない限り卒業後は使用できません． | svgファイルを作る必要があります． | . ",
     "url": "/figure/graph_draw.html#matlab",
     
     "relUrl": "/figure/graph_draw.html#matlab"
-  },"34": {
+  },"38": {
     "doc": "グラフの書き方",
     "title": "matplotlib",
     "content": ". | プログラミング言語pythonやjuliaでmatplotlibパッケージを利用する方法です． | キレイなグラフは書けますが，論文中のフォントやフォントサイズと揃えるには最新の注意を払う必要があります． | Jupyter Notebookを利用すると非常に書きやすいです． | svgファイルを作る必要があります． | . ",
     "url": "/figure/graph_draw.html#matplotlib",
     
     "relUrl": "/figure/graph_draw.html#matplotlib"
-  },"35": {
+  },"39": {
     "doc": "グラフの書き方",
     "title": "Lilaq",
     "content": ". | Typstで直接グラフを書く方法です． | キレイなグラフが書け，論文中のフォント等に注意しなくとも自動的に適用されます． | 数式の入力が容易です． | まだ全てのグラフを書けるわけではありません． | . ",
     "url": "/figure/graph_draw.html#lilaq",
     
     "relUrl": "/figure/graph_draw.html#lilaq"
-  },"36": {
+  },"40": {
     "doc": "Home",
     "title": "typst テンプレートマニュアル",
     "content": "これは，東京理科大学創域理工学部機械航空宇宙工学科・大学院創域理工学研究科機械航空宇宙工学専攻の学位論文をtypst環境で構築するためのテンプレートです． . 本テンプレートは，環境構築の手順に従うことで簡単に使用できます． . ",
     "url": "/#typst-%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%83%9E%E3%83%8B%E3%83%A5%E3%82%A2%E3%83%AB",
     
     "relUrl": "/#typst-テンプレートマニュアル"
-  },"37": {
+  },"41": {
     "doc": "Home",
     "title": "typstの利点",
     "content": "typstは，Wordに比べて以下のような利点が挙げられます． . | 様々な事項を自動で配置してくれるので，Wordのように常に書式を気にする必要はありません | 目次や式番号，図表管理など，手動で設定せずにtypstが管理してくれます | BibTeXを利用することで，文献書式を手動で設定する必要がありません | 数式をより簡単に，そして美しく表記できます | . また，typstはLaTeXに比べて以下のような利点が挙げられます． . | 変更内容が即座に反映されます．このため，レンダリングに待つ時間がほとんどありません | 明確で理解しやすいエラーメッセージを提供してくれます | LaTeXの膨大な遺産を継承しないので，インストールが非常に軽量です | 理解しにくいマクロの代わりに，使い慣れたプログラミング構造を使用します | 同じクオリティの数式をより簡単に記述できます． | 公式ドキュメントが充実しており，すぐに問題を解決できます | . ",
     "url": "/#typst%E3%81%AE%E5%88%A9%E7%82%B9",
     
     "relUrl": "/#typstの利点"
-  },"38": {
+  },"42": {
     "doc": "Home",
     "title": "typstの欠点",
     "content": ". | まだ全ての日本語組版に対応しきれていません | 日本語のドキュメントは発展途上です | typstは開発段階の言語なため，常に更新が必要です | . LaTeXを使用することにこだわりを持たない人は，ぜひtypstを活用しましょう． 学位論文テンプレートには，LaTeX版も存在するため，LaTeXに慣れている人はそちらを使用しても良いです． 自分の使いやすい環境で学位論文を執筆しましょう． . ",
     "url": "/#typst%E3%81%AE%E6%AC%A0%E7%82%B9",
     
     "relUrl": "/#typstの欠点"
-  },"39": {
+  },"43": {
     "doc": "Home",
     "title": "Home",
     "content": " ",
     "url": "/",
     
     "relUrl": "/"
-  },"40": {
+  },"44": {
     "doc": "Inkscapeで書く",
     "title": "Inkscapeで書く",
     "content": "ここでは，Inkscapeで図を書く方法について紹介します . ",
     "url": "/figure/draw/inkscape.html",
     
     "relUrl": "/figure/draw/inkscape.html"
-  },"41": {
+  },"45": {
     "doc": "Inkscapeで書く",
     "title": "Table of contents",
     "content": ". ",
     "url": "/figure/draw/inkscape.html#table-of-contents",
     
     "relUrl": "/figure/draw/inkscape.html#table-of-contents"
-  },"42": {
+  },"46": {
     "doc": "環境構築",
     "title": "環境構築",
     "content": "ここでは，Typst環境を構築する方法について述べます． . ",
     "url": "/install.html",
     
     "relUrl": "/install.html"
-  },"43": {
+  },"47": {
     "doc": "環境構築",
     "title": "Visual Studio Codeの準備",
     "content": ". | Visual Studio Codeをインストールする . | https://azure.microsoft.com/ja-jp/products/visual-studio-codeにアクセス | ページの「VS Codeをダウンロードする」に移動 | 自分のPCに当てはまる項目を選択し，ダウンロード | ダウンロードしたインストーラを開き，案内に従ってインストール | . | 日本語設定をする . | . ",
     "url": "/install.html#visual-studio-code%E3%81%AE%E6%BA%96%E5%82%99",
     
     "relUrl": "/install.html#visual-studio-codeの準備"
-  },"44": {
+  },"48": {
     "doc": "環境構築",
     "title": "Typstの準備",
-    "content": ". | VSCodeの拡張機能でTypstを検索し，Typst Tiministをインストールする | . ",
+    "content": ". | VSCodeの拡張機能でTypstを検索し，Typst Tinymistをインストールする | . ",
     "url": "/install.html#typst%E3%81%AE%E6%BA%96%E5%82%99",
     
     "relUrl": "/install.html#typstの準備"
-  },"45": {
+  },"49": {
     "doc": "環境構築",
     "title": "Typstコマンドの設定",
-    "content": "通常，Typstを使用する際にはTypst Tiministを使用しますが，本テンプレートで差分を取る際には，typstコマンドを使用します． このため，以下の手順でTypstコマンドを使用できるようにします． . MacOSの場合 . | brewをインストールする | 以下のコマンドを実行して，typstコマンドをインストールする . brew install typst . | . Windowsの場合 . | コマンドライン上で以下のコマンドを実行して，typstコマンドをインストールする . winget install --id Typst.Typst . | typst.exeのパスを以下のコマンドで表示 where typst . して，typst.exeのパスをコピーしておく（例：C:\\Users\\&lt;username&gt;\\AppData\\Local\\Microsoft\\WinGet\\Links\\）． このとき，typst.exeの部分は含めないこと． . | Git Bashを起動し，~/.bashrcを開く . nano ~/.bashrc . | ~/.bashrcの最後に以下の行を追加し，先ほどコピーしたtypst.exeのパスを貼り付ける . export PATH=$PATH:パス . | Ctrl + X，Y，Enterの順に押して保存する . | Git Bashを再起動し，以下のコマンドを実行してtypstコマンドが使用できることを確認する . typst --version . | . ",
+    "content": "通常，Typstを使用する際にはTypst Tinymistを使用しますが，本テンプレートで差分を取る際には，typstコマンドを使用します． このため，以下の手順でTypstコマンドを使用できるようにします． . MacOSの場合 . | brewをインストールする | 以下のコマンドを実行して，typstコマンドをインストールする . brew install typst . | . Windowsの場合 . | コマンドライン上で以下のコマンドを実行して，typstコマンドをインストールする . winget install --id Typst.Typst . | typst.exeのパスを以下のコマンドで表示 where typst . して，typst.exeのパスをコピーしておく（例：C:\\Users\\&lt;username&gt;\\AppData\\Local\\Microsoft\\WinGet\\Links\\）． このとき，typst.exeの部分は含めないこと． . | Git Bashを起動し，~/.bashrcを開く . nano ~/.bashrc . | ~/.bashrcの最後に以下の行を追加し，先ほどコピーしたtypst.exeのパスを貼り付ける . export PATH=$PATH:パス . | Ctrl + X，Y，Enterの順に押して保存する . | Git Bashを再起動し，以下のコマンドを実行してtypstコマンドが使用できることを確認する . typst --version . | . ",
     "url": "/install.html#typst%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%81%AE%E8%A8%AD%E5%AE%9A",
     
     "relUrl": "/install.html#typstコマンドの設定"
-  },"46": {
+  },"50": {
     "doc": "環境構築",
     "title": "学位論文テンプレートの準備",
     "content": "本テンプレートを使用して学位論文を執筆するためには，以下の手順でリポジトリを準備します． また，typstは自動的にフォントをインストールできないため，自分の環境にフォントを手動でインストールする必要があります． . クローンとリモートの設定 . | Organizationではなく，個人のGitHubアカウントに空のリポジトリを作成． ここでは仮にmaster_thesisというリポジトリ名にする． リポジトリ作成時にREADME.mdや.gitignoreは作成しない . | Privateリポジトリになっていることを確認したら，Create repositoryを押す． . | このテンプレートをcloneする git clone git@github.com:tsukahara-lab/TUS-ME_thesis_typst_template.git master_thesis cd master_thesis . | remote設定を書き換える（例えば塚原先生（tsukapom）が修士論文を執筆する場合） # リモートURLを自身のものに変更 git remote set-url origin git@github.com:tsukapom/master_thesis # URLの変更が反映されているか確認 git remote -v # 自身のリモートリポジトリにテンプレートの中身を反映 git push origin HEAD . | Github上の自分のリポジトリにアクセスし，mainブランチが存在することを確認する． | . フォントの設定 . | このリポジトリのfontsディレクトリを開き，ここに含まれているフォントを全てインストールする． | . ",
     "url": "/install.html#%E5%AD%A6%E4%BD%8D%E8%AB%96%E6%96%87%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%81%AE%E6%BA%96%E5%82%99",
     
     "relUrl": "/install.html#学位論文テンプレートの準備"
-  },"47": {
+  },"51": {
     "doc": "マークアップモード",
     "title": "マークアップモード",
     "content": "マークアップモードは，文章を書くときに使用するモードです． ここでは，マークアップモードで使用できる様々なオプション表示について紹介します． . ",
     "url": "/basic/markup.html",
     
     "relUrl": "/basic/markup.html"
-  },"48": {
+  },"52": {
     "doc": "マークアップモード",
     "title": "Table of contents",
     "content": ". | 強調 | 斜体 | 箇条書きリスト | 番号付きリスト | . ",
     "url": "/basic/markup.html#table-of-contents",
     
     "relUrl": "/basic/markup.html#table-of-contents"
-  },"49": {
+  },"53": {
     "doc": "マークアップモード",
     "title": "強調",
     "content": "例 . これは*強調*です． これも#strong[強調]です． . | . | *で囲うことで，強調が可能です． | *の代わりにstrong関数も使用できます（が，あえて使用する必要はないはずです）． | . ",
     "url": "/basic/markup.html#%E5%BC%B7%E8%AA%BF",
     
     "relUrl": "/basic/markup.html#強調"
-  },"50": {
+  },"54": {
     "doc": "マークアップモード",
     "title": "斜体",
     "content": "例 . これは_itaric_です． これも#emph[itaric]です． 日本語は_斜体_になりません． . | . | _で囲うことで，斜体表現が可能です． | _の代わりにemph関数も使用できます（が，あえて使用する必要はないはずです）． | 例のように，日本語では斜体は使用できません． | . ",
     "url": "/basic/markup.html#%E6%96%9C%E4%BD%93",
     
     "relUrl": "/basic/markup.html#斜体"
-  },"51": {
+  },"55": {
     "doc": "マークアップモード",
     "title": "箇条書きリスト",
     "content": "例 . - リスト1つ目 - リスト2つ目 - 一つ深いリスト1つ目 - 一つ深いリスト2つ目 - リスト3つ目 . | . | - で箇条書きリストとなります． | ハイフンの後に半角スペースを設けないと，そのままハイフンが表示されます． | - の位置を深くすることで，位置を制御することが可能です． | . ",
     "url": "/basic/markup.html#%E7%AE%87%E6%9D%A1%E6%9B%B8%E3%81%8D%E3%83%AA%E3%82%B9%E3%83%88",
     
     "relUrl": "/basic/markup.html#箇条書きリスト"
-  },"52": {
+  },"56": {
     "doc": "マークアップモード",
     "title": "番号付きリスト",
     "content": "例 . + リスト1つ目 + リスト2つ目 + 一つ深いリスト1つ目 + 一つ深いリスト2つ目 + リスト3つ目 . | . | + で番号付きリストとなります． | プラスの後に半角スペースを設けないと，そのままプラスが表示されます． | + の位置を深くすることで，番号を制御することが可能です． | . ",
     "url": "/basic/markup.html#%E7%95%AA%E5%8F%B7%E4%BB%98%E3%81%8D%E3%83%AA%E3%82%B9%E3%83%88",
     
     "relUrl": "/basic/markup.html#番号付きリスト"
-  },"53": {
+  },"57": {
     "doc": "数式",
     "title": "数式",
     "content": "数式の書き方について紹介します． 数式文字などの具体的な表記法については，公式ドキュメントを参照してください． . ",
     "url": "/basic/math.html",
     
     "relUrl": "/basic/math.html"
-  },"54": {
+  },"58": {
     "doc": "数式",
     "title": "Table of contents",
     "content": ". | 数式の書き方 . | 単独の数式 | 文中の数式 | . | 複数行の数式 | physicaパッケージの利用 | . ",
     "url": "/basic/math.html#table-of-contents",
     
     "relUrl": "/basic/math.html#table-of-contents"
-  },"55": {
+  },"59": {
     "doc": "数式",
     "title": "数式の書き方",
     "content": "単独の数式 . $ sin x $ . | . | $ と $で囲うことで，ディスプレイ形式の数式が書けます． | $の前後に半角スペースが必要です． | . 文中の数式 . これは，文の中の数式$sin x$です． . | . | $で囲うことで，文中の数式が書けます． | $の前後に半角スペースは入りません．前後両者ともにスペースを設けると，ディスプレイ形式の数式となります． | . ",
     "url": "/basic/math.html#%E6%95%B0%E5%BC%8F%E3%81%AE%E6%9B%B8%E3%81%8D%E6%96%B9",
     
     "relUrl": "/basic/math.html#数式の書き方"
-  },"56": {
+  },"60": {
     "doc": "数式",
     "title": "複数行の数式",
     "content": "$ integral_0^(2pi) sin x &amp;= [- cos x]_0^(2pi)#nonumber\\ &amp;= 0 $ . | . | 強制改行\\を使うことで，複数行の数式が書けます． | 強制改行の前に，#nonumberを書くことで，その行に式番号がつかなくなります．途中式の場合は，極力式番号を出力せず，#nonumberを使うようにしてください． | イコール等で行を揃えるには，揃える位置に&amp;を書きます． | . ",
     "url": "/basic/math.html#%E8%A4%87%E6%95%B0%E8%A1%8C%E3%81%AE%E6%95%B0%E5%BC%8F",
     
     "relUrl": "/basic/math.html#複数行の数式"
-  },"57": {
+  },"61": {
     "doc": "数式",
     "title": "physicaパッケージの利用",
     "content": "LaTeXでは，数式を簡単に書くためのphysics2パッケージが存在しますが，Typstではphysicaパッケージがあります． 以下はphysicaパッケージを利用して，偏微分をpdvコマンドで書いている例です． . $ pdv(u_i, t) + u_j pdv(u_i, x_j) = - 1/rho pdv(p, x_i) + nu pdv(u_i, x_j, x_j) + f_i $ . | . physicaパッケージには，様々な便利関数が含まれます．詳しくは，physicaパッケージマニュアルを参照してください． . 以下は，physicaパッケージで微分を書く例です． . | コード | レンダリング | . | dv(y, x) | | . | dv(y, x, 2) | | . | pdv(y, x) | | . | pdv(y, x, 2) | | . | pdv(y, x, z) | | . | pdv(y, x, z, [2, 1]) | | . この他にも，physicaパッケージには微分に留まらない多くの関数が存在します． 本テンプレートではデフォルトでこのパッケージを読み込むよう設定しているので，積極的に使用しましょう． . ",
     "url": "/basic/math.html#physica%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E3%81%AE%E5%88%A9%E7%94%A8",
     
     "relUrl": "/basic/math.html#physicaパッケージの利用"
-  },"58": {
+  },"62": {
     "doc": "PowerPointで書く",
     "title": "PowerPointで書く",
     "content": "ここでは，PowerPointで図を書く方法について紹介します． PowerPointで図を書くことは一見簡単なように見えますが，論文中に取り込むにはそのサイズやフォントを厳しくチェックする必要があります． このため，図を挿入する手順は若干煩雑になります． . ",
     "url": "/figure/draw/powerpoint.html",
     
     "relUrl": "/figure/draw/powerpoint.html"
-  },"59": {
+  },"63": {
     "doc": "PowerPointで書く",
     "title": "Table of contents",
     "content": ". | 論文に図を入れる手順 | . ",
     "url": "/figure/draw/powerpoint.html#table-of-contents",
     
     "relUrl": "/figure/draw/powerpoint.html#table-of-contents"
-  },"60": {
+  },"64": {
     "doc": "PowerPointで書く",
     "title": "論文に図を入れる手順",
     "content": "PowerPointで図を書く際には，必ず次の手順で図を書くようにしてください． これを守らないと，論文の体裁と図の体裁が一致しない可能性があります． . | 論文の配置を決定する . 論文中に入れる図の数などをもとに，図が1枚のときなどを参考にして配置を決めます． ここでは，論文中に図が1枚のときのような例を貼り付けるだけで良いです． . | 入れる図のサイズを決定する . 図のサイズを決定するため，以下のような長方形をimage関数の代わりに挿入します． . rect(width: 10cm, height: 6cm) . このwidthとheightの値を調整して，自分が入れたい図のサイズに調整してください． . | PowerPointの用紙を2.で決めた大きさにする . | PowerPointを立ち上げ，デザイン/スライドのサイズ/ページ設定を開く | 2.で決めたwidthとheightの値を入れて，ページの大きさを変更する | . | PowerPoint上で図を書く . | 文字を入れるときは原ノ味明朝フォントとし，文字サイズは12ptとしてください． | 数式フォントはLatin Modern Mathを設定してください．（数式環境でたまにバグが発生しますが，現状のPowerPointでは修正できないようです） | . | 出力する . 出力形式にpdfを選択し，出力します． . | pdfをsvgに変換する . ターミナル上で，pdf2svgコマンドを入力し，変換します . pdf2svg test.pdf test.svg . 出力後，これをfigureフォルダに入れます . | rect関数を再びimage関数にする . 例えば，test.svgを出力した場合は，次のように書きます． . image(\"../figure/test.svg\", width: 10cm) . このとき，widthに2.で設定した幅を入れてください． . | . ",
     "url": "/figure/draw/powerpoint.html#%E8%AB%96%E6%96%87%E3%81%AB%E5%9B%B3%E3%82%92%E5%85%A5%E3%82%8C%E3%82%8B%E6%89%8B%E9%A0%86",
     
     "relUrl": "/figure/draw/powerpoint.html#論文に図を入れる手順"
-  },"61": {
+  },"65": {
     "doc": "基本の文章",
     "title": "基本の文章",
     "content": " ",
     "url": "/basic/sentence.html",
     
     "relUrl": "/basic/sentence.html"
-  },"62": {
+  },"66": {
     "doc": "基本の文章",
     "title": "Table of contents",
     "content": ". | ファイルの配置 . | 新しくチャプターを作るとき | チャプターを削除するとき | . | モード | 文章を書く . | 短縮記号機能 | コメント機能 | . | 節の配置 . | 番号をつけない節の配置 | . | . ",
     "url": "/basic/sentence.html#table-of-contents",
     
     "relUrl": "/basic/sentence.html#table-of-contents"
-  },"63": {
+  },"67": {
     "doc": "基本の文章",
     "title": "ファイルの配置",
-    "content": "学位論文の本体は main.typ ですが，論文の中身を書くのは，chapterフォルダの中にある.typファイル内です． テンプレートでは，chapterフォルダに以下の8つのファイルが含まれています． . ├── chapter │   ├── acknowledgement.typ │   ├── appendix.typ │   ├── conclusion.typ │   ├── discussion.typ │   ├── introduction.typ │   ├── method.typ │   ├── result.typ │   └── signary.typ └── main.typ . これらのファイルに制限はないため，状況によって増やしたり減らしたりすることが可能です． . 新しくチャプターを作るとき . 例えば，新たにturbulence.typファイルを作成し，「乱流について」というチャプターを作りたいときは，以下のような手順で設定します． . | chapterフォルダの中にturbulence.typファイルを作る | turbulence.typの中に次のように書く #import \"../style/thesis_style.typ\": * = 乱流について &lt;chapter:乱流について&gt; . | main.typに以下の内容を追記して，新しく作ったファイルを認識させる //乱流について #include \"chapter/turbulence.typ\" . | . チャプターを削除するとき . 例えば，chapter/discussion.typを削除するときは，以下のようにします． . | main.typ内の以下の項目を削除する //考察 #include \"chapter/discussion.typ\" . このとき，chapterフォルダ内に残ったdiscussion.typは残しておいても削除してもかまいませんが，main.typ内で認識させている他のファイルは削除してはいけません． . | . ",
+    "content": "学位論文の本体は main.typ ですが，論文の中身を書くのは，chapterフォルダの中にある.typファイル内です． テンプレートでは，chapterフォルダに以下の8つのファイルが含まれています． また，参考文献はbibliographyフォルダ内のref.bibに記載します． . ├── chapter │   ├── acknowledgement.typ │   ├── appendix.typ │   ├── conclusion.typ │   ├── discussion.typ │   ├── introduction.typ │   ├── method.typ │   ├── result.typ │   └── signary.typ ├── bibliography │   └── ref.bib └── main.typ . これらのファイルに制限はないため，状況によって増やしたり減らしたりすることが可能です． . 新しくチャプターを作るとき . 例えば，新たにturbulence.typファイルを作成し，「乱流について」というチャプターを作りたいときは，以下のような手順で設定します． . | chapterフォルダの中にturbulence.typファイルを作る | turbulence.typの中に次のように書く #import \"../style/thesis_style.typ\": * = 乱流について &lt;chapter:乱流について&gt; . | main.typに以下の内容を追記して，新しく作ったファイルを認識させる //乱流について #include \"chapter/turbulence.typ\" . | . チャプターを削除するとき . 例えば，chapter/discussion.typを削除するときは，以下のようにします． . | main.typ内の以下の項目を削除する //考察 #include \"chapter/discussion.typ\" . このとき，chapterフォルダ内に残ったdiscussion.typは残しておいても削除してもかまいませんが，main.typ内で認識させている他のファイルは削除してはいけません． . | . ",
     "url": "/basic/sentence.html#%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E9%85%8D%E7%BD%AE",
     
     "relUrl": "/basic/sentence.html#ファイルの配置"
-  },"64": {
+  },"68": {
     "doc": "基本の文章",
     "title": "モード",
     "content": "Typstには，3種類の構文モードがあります． . | 種類 | 構文 | 例 | . | マークアップ | マークアップを[..]で囲む | let name = [*Typst!*] | . | コード | コードの前に#をつける | Number: #(1 + 2) | . | 数式 | 式を$..$で囲む | $sin x$ | . | 文章を書くときは，マークアップモードです．明示的に数式モードやコードモードにしない限り，マークアップモードとなります． | 数式を書くときは，$で囲むことで数式モードにします． | コードモードは，何らかの関数を呼び出す時に使用します． | . ",
     "url": "/basic/sentence.html#%E3%83%A2%E3%83%BC%E3%83%89",
     
     "relUrl": "/basic/sentence.html#モード"
-  },"65": {
+  },"69": {
     "doc": "基本の文章",
     "title": "文章を書く",
     "content": "学位論文に文章を加えるには，chapterフォルダの中にある.typファイル内を操作します． . こんにちは，世界． 今日はいい天気ですね． 明日は雨が降るかもしれません． . | . | .typ内での改行は，出力結果に影響しません． | .typ内で2行改行すると，段落が切り替わります． | .typ内では，一文ごとに改行することを強く勧めます． これは，git上で差分管理する上で重要なことです． また，段落の切り替えは上記のように2行改行で対応してください． 強制改行コマンド\\や#linebreak()は極力使用しないでください． . 短縮記号機能 . Typstには様々なマークアップ機能があり，具体的にはマークアップモードで紹介します． ここでは，短縮記号について紹介します． . Hello~World. Large-Eddy Simulation Navier--Stokes equation . | . | ~は改行なしスペースを設けます．~で繋がれた単語は，改行位置でも常に離れません． | -は意味のある単語をつなげるために使用されます．上の例のように，Large-Eddy Simulationなどがこれに当てはまります．typst上では，-はそのまま出力されます． | --はenダッシュを表します．人物名を繋ぐ場合や，数値の範囲を表す場合に使用します． （数値の範囲とは，例えば「3〜5」と表記したいとき，論文では「3--5」と表記することを表します．） | . コメント機能 . //ここにはコメントが入ります． ここは1つ目の本文です． /* このように書けば，複数行のコメントが可能です． ここもまだコメントです． ここまでがコメントです */ ここは2つ目の本文です． . | . | 単行のコメントを書くには，//を利用します． | 複数行のコメントを書くには，/*と*/を利用します．これらに囲まれた箇所はコメントとなり，出力されません． | . ",
     "url": "/basic/sentence.html#%E6%96%87%E7%AB%A0%E3%82%92%E6%9B%B8%E3%81%8F",
     
     "relUrl": "/basic/sentence.html#文章を書く"
-  },"66": {
+  },"70": {
     "doc": "基本の文章",
     "title": "節の配置",
     "content": "第1章など，章の配置方法は新しくチャプターを作るときで紹介した方法で追加・削除ができます． ここでは，第1.3節など，学位論文の節を構成する方法を紹介します． . == 先行研究 &lt;section:先行研究&gt; ここは本文 === Aの先行研究 &lt;subsection:Aの先行研究&gt; ここも本文 . | . | ==でセクションを構成します． | =の数でより深いセクションが構成できます． | &lt;..&gt;でセクションのラベルを構成します．本文中で第◯節と述べる際には，@..と書くことで引用できます．ラベルの作成は必須ではありませんが，なるべく書くようにしてください． | ラベルの中身は任意の文字列が使用できるはずです．しかし上記のように明確なラベル付けがわかりやすいです． | 同じ名前のラベルを複数つけてはいけません． | . 番号をつけない節の配置 . #heading([先行研究], numbering: none, level: 2, outlined: false) . | . 通常この項目は使用しません． しかし，一つの見出しにしたいが節にするほどでもないものに利用すると便利です． この項目を多用すると見づらい論文となってしまうので，なるべく使わないことを勧めます． . 引数 . body contents . 節の題名を書きます． . numbering none str . 番号をつけない場合にこれを追記します． . デフォルト：\"1.1\" . level int . 節の深さを設定します． 1のときチャプタを作成し，2以降で節を作成します． . デフォルト：auto . outlined bool . この項目を目次に入れるかを設定します． trueで目次に追加し，falseで目次に追加しません． . デフォルト：true . 付録の章では，デフォルトで番号がつきません． これは，本テンプレートの仕様です． このため，付録ではわざわざ#heading(...)を使用する必要はなく，通常通り== ...を利用できます． . ",
     "url": "/basic/sentence.html#%E7%AF%80%E3%81%AE%E9%85%8D%E7%BD%AE",
     
     "relUrl": "/basic/sentence.html#節の配置"
-  },"67": {
+  },"71": {
     "doc": "表の挿入",
     "title": "表の挿入",
     "content": "表を挿入するには，fig関数の中にtblr関数を入れることで実現できます． 以下は，学会の年会費一覧を表にした例です． . #fig( tblr( columns: 3, align: (left, center, right), align(center)[学会名], align(center)[会員種別], align(center)[年会費], table.hline(), table.cell(colspan: 3, align: center)[実在する学会], table.hline(), [日本機械学会], [学生員], [$4800$円], [日本流体力学会], [学生会員], [$5000$円], [日本伝熱学会], [学生会員], [$4000$円], table.hline(), table.cell(colspan: 3, align: center)[実在しない学会], table.hline(), table.cell(rowspan: 4, align: horizon)[日本架空学会], [小学生会員], [$-8000$円], [中高生会員], [$-8000$円], [大学生会員], [$-8000$円], [名誉学生会員], [$6.02 times 10^23$円], ), caption: [学会の年会費一覧], label: &lt;table:学会の年会費一覧&gt;, ) . | . typstの組込み関数であるtable関数も使用できますが，本テンプレートで実装したtblr関数を使用すると，機械学会の論文フォーマットに近い表を簡単に作成できます． . ",
     "url": "/table/table.html",
     
     "relUrl": "/table/table.html"
-  },"68": {
+  },"72": {
     "doc": "学位論文の書き方",
     "title": "学位論文の書き方",
     "content": " ",
     "url": "/write.html",
     
     "relUrl": "/write.html"
-  },"69": {
+  },"73": {
     "doc": "学位論文の書き方",
     "title": "プレビューを開く",
     "content": "本テンプレートを使用するには，VScode上で以下の手順で開きます . | main.typを開く | Ctrl + K + Vを押す | . これで，Typst previewが起動し，main.pdfがプレビューできます． . ",
     "url": "/write.html#%E3%83%97%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC%E3%82%92%E9%96%8B%E3%81%8F",
     
     "relUrl": "/write.html#プレビューを開く"
-  },"70": {
+  },"74": {
     "doc": "学位論文の書き方",
     "title": "pdfを出力する",
-    "content": "Typst Tiministを使用する場合 . | main.typを開く | VScode上のpdfアイコンをクリックする | . これで，main.pdfが出力されます． . typstコマンドを使用する場合 . | ターミナルを開く | 以下のコマンドを実行する typst compile main.typ . | . これで，main.pdfが出力されます． . ",
+    "content": "Typst Tinymistを使用する場合 . | main.typを開く | VScode上のpdfアイコンをクリックする | . これで，main.pdfが出力されます． . typstコマンドを使用する場合 . | ターミナルを開く | 以下のコマンドを実行する typst compile main.typ . | . これで，main.pdfが出力されます． . ",
     "url": "/write.html#pdf%E3%82%92%E5%87%BA%E5%8A%9B%E3%81%99%E3%82%8B",
     
     "relUrl": "/write.html#pdfを出力する"
-  },"71": {
+  },"75": {
     "doc": "学位論文の書き方",
     "title": "完成版の出力",
     "content": "暫定版（デフォルト）では，学位論文の横に行番号が表示されます． また，コメントや警告がある場合には，そのリストが最終ページに出力されます． 完成版を出力する際には，これらの情報を全て削除します． 削除するには，main.typ内の . #show: check-contents . をコメントアウトします． . 上記の処理を行う前に，必ず最終ページのリストの警告を全て解消してください． . ",
