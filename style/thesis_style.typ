@@ -13,10 +13,10 @@
 #let comment-content-arr = state("comment-content-arr", ())
 
 // 外部パッケージ
-#import "@preview/equate:0.2.1": equate
+#import "@preview/equate:0.3.2": equate
 #import "@preview/roremu:0.1.0": roremu
-#import "@preview/physica:0.9.4": *
-#import "@preview/unify:0.7.0": *
+#import "@preview/physica:0.9.6": *
+#import "@preview/unify:0.7.1": *
 
 //　文献パッケージ
 #import "@preview/enja-bib:0.1.0": *
@@ -41,6 +41,7 @@
     justify: true,
     first-line-indent: 1em,
     leading: 1em,
+    spacing: 1em
   )
 
   // テキスト設定
@@ -493,6 +494,7 @@
   set page(
     margin: (left: 25mm, right: 10mm, top: 25mm, bottom: 15mm),
   )
+  set par(spacing: 1.2em)
   set align(center)
   v(12em)
   number-to-zenkaku(year) + [年度]
@@ -566,7 +568,7 @@
 
   show outline.entry.where(level: 1): it => {
 
-    set par(first-line-indent: 0em)
+    set par(first-line-indent: 0em, spacing: 1.2em)
 
     if it.element.numbering != none{
 

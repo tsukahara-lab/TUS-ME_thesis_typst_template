@@ -17,7 +17,7 @@ nav_order: 3
 
 ## pdfを出力する
 
-### Typst Tiministを使用する場合
+### Typst Tinymistを使用する場合
 
 1. `main.typ`を開く
 1. VScode上のpdfアイコンをクリックする
@@ -40,7 +40,7 @@ nav_order: 3
 また，コメントや警告がある場合には，そのリストが最終ページに出力されます．
 完成版を出力する際には，これらの情報を全て削除します．
 削除するには，`main.typ`内の
-```typst
+```
 #show: check-contents
 ```
 をコメントアウトします．

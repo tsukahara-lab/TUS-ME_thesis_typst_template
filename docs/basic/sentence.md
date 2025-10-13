@@ -20,6 +20,7 @@ nav_order: 1
 
 学位論文の本体は `main.typ` ですが，論文の中身を書くのは，`chapter`フォルダの中にある`.typ`ファイル内です．
 テンプレートでは，`chapter`フォルダに以下の8つのファイルが含まれています．
+また，参考文献は`bibliography`フォルダ内の`ref.bib`に記載します．
 
 ```bash
 .
@@ -32,6 +33,8 @@ nav_order: 1
 │   ├── method.typ
 │   ├── result.typ
 │   └── signary.typ
+├── bibliography
+│   └── ref.bib
 └── main.typ
 ```
 
