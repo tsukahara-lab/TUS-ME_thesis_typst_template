@@ -13,10 +13,10 @@
 #let comment-content-arr = state("comment-content-arr", ())
 
 // 外部パッケージ
-#import "@preview/equate:0.2.1": equate
+#import "@preview/equate:0.3.2": equate
 #import "@preview/roremu:0.1.0": roremu
-#import "@preview/physica:0.9.4": *
-#import "@preview/unify:0.7.0": *
+#import "@preview/physica:0.9.6": *
+#import "@preview/unify:0.7.1": *
 
 //　文献パッケージ
 #import "@preview/enja-bib:0.1.0": *
