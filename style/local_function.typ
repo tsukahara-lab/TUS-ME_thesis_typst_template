@@ -171,3 +171,55 @@
   table(..output-array, columns: columns, stroke: stroke-out, fill: fill, gutter: gutter, column-gutter: column-gutter, row-gutter: (2pt, auto), inset: inset, align: align)
 
 }
+
+// 無次元数の設定
+
+#let Ar = $A r$
+#let As = $A s$
+#let Be = $B e$
+#let Bm = $B m$
+#let Bi = $B i$
+#let Bo = $B o$
+#let Br = $B r$
+#let Ca = $C a$
+#let Da = $D a$
+#let Cf = $C_f$
+#let Cl = $C_l$
+#let Cd = $C_d$
+#let Cp = $C_p$
+#let De = $D e$
+#let Ec = $E c$
+#let Ek = $E k$
+#let Er = $E r$
+#let Eu = $E u$
+#let Fr = $F r$
+#let Ga = $G a$
+#let Gz = $G z$
+#let Gr = $G r$
+#let Ha = $H a$
+#let Hg = $H g$
+#let Ir = $I r$
+#let Ka = $K a$
+#let Kn = $K n$
+#let Ku = $K u$
+#let La = $L a$
+#let Le = $L e$
+#let Ma = $M a$
+#let Mg = $M g$
+#let Mo = $M o$
+#let Nu = $N u$
+#let Oh = $O h$
+#let Pe = $P e$
+#let Pr = $P r$
+#let Ra = $R a$
+#let Re = $R e$
+#let Ri = $R i$
+#let Ro = $R o$
+#let Sc = $S c$
+#let Sh = $S h$
+#let St = $S t$
+#let Stk = $St_k$
+#let Ta = $T a$
+#let Wea = $W e a$
+#let We = $W e$
+#let Wi = $W i$
