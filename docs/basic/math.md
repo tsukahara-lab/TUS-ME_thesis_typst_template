@@ -65,6 +65,29 @@ $
 
 ---
 
+## ラベルと参照
+
+```
+$
+    pdv(u_i u_j, x_j) &= u_j pdv(u_i, x_j) + u_i pdv(u_j, x_j) #<eq:product-rule>\
+    &= u_j pdv(u_i, x_j)#<eq:incompressible-product-rule>
+$<eq:nav-advection>
+
+@eq:nav-advection は，積の微分公式を用いた．
+さらに非圧縮性条件を適用すれば，@eq:incompressible-product-rule のように第二項を消去できる．
+したがって，@eq:product-rule は以下のように書き換えられる...
+```
+
+|:-|
+| ![](../images/basic-math-fig5.png) |
+
+- `<>`で囲うことで，数式にラベルをつけることができます．
+- `@`をつけてラベル名を書くことで，数式を参照できます．
+- ラベル名は自由に設定できますが，数式の内容がわかるような名前にすることを推奨します．
+- 式全体にラベルをつける場合は，数式の最後に`$<...>`と書きます．この場合，引用した式の最初の式番号が参照されます．
+
+---
+
 ## physicaパッケージの利用
 
 LaTeXでは，数式を簡単に書くためのphysics2パッケージが存在しますが，Typstではphysicaパッケージがあります．
