@@ -2,7 +2,7 @@
 // フォント
 #let mincho = ("Times New Roman", "Harano Aji Mincho")
 #let gothic = ("Helvetica", "Harano Aji Gothic")
-#let mathf = ("Latin Modern Math")
+#let mathf = ("Latin Modern Math", ..mincho)
 #let codef = ("Noto Mono for Powerline")
 
 // 日本語間のコード改行
