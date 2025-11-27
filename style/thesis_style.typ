@@ -670,8 +670,13 @@
       if alert-contents != (){//アラートがある場合
         text(size: 1.2em, font: gothic, weight: "bold")[警告]
 
-        let tmp = query(heading.where(numbering: "A")).at(0)
-        let appendix-first-page = counter(page).at(tmp.location()).at(0)
+        let tmp = query(heading.where(numbering: "A"))
+        let appendix-first-page = locate(here()).page() + 1000
+
+        if tmp.len() != 0{//付録がある場合
+          tmp = tmp.at(0)
+          appendix-first-page = counter(page).at(tmp.location()).at(0)
+        }
 
         let alert-table = ()
         let num = 0
