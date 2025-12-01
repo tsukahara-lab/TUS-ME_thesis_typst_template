@@ -47,8 +47,8 @@
     return (output.sum(), arr)
   } else if utils.is-styled(it) {
     let output = ()
-      let tmp = styled-output(it.child, arr, format-plus, format-minus)
-      arr = tmp.at(1)
+    let tmp = styled-output(it.child, arr, format-plus, format-minus)
+    arr = tmp.at(1)
     return (utils.reconstruct-styled(it, tmp.at(0)), arr)
   } else if is-text(it) {
     let text_len = it.text.len()
@@ -93,7 +93,7 @@
   it,
   arr,
   format-plus,
-  format-minus
+  format-minus,
 ) = {
   for val in it.children {
     if is-text(val) {

@@ -5,14 +5,14 @@
 
 #roremu(16)
 
-#roremu(448-16, offset: 16)
+#roremu(448 - 16, offset: 16)
 
 == 研究背景
 <section:研究背景>
 
 #roremu(151, offset: 448)
 
-#roremu(143, offset: 448+151)
+#roremu(143, offset: 448 + 151)
 
 #pagebreak()
 

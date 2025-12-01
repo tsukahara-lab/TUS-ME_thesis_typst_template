@@ -9,13 +9,9 @@
   title: [ここにタイトルを挿入],
   laboratory: [塚原],
   authors: (
-    ( student-id: "75*****",
-      name: "機械　工作"
-    ),
-    ( student-id: "75*****",
-      name: "野田　理科"
-    ),
-  )
+    (student-id: "75*****", name: "機械　工作"),
+    (student-id: "75*****", name: "野田　理科"),
+  ),
 )
 
 氏名の欄から1行開けて，概要文章はここから始める．
@@ -28,13 +24,9 @@
   title: [The reason to write an abstract in English],
   laboratory: [Tsukahara],
   authors: (
-    ( student-id: "75*****",
-      name: "Kouji KIKAI"
-    ),
-    ( student-id: "75*****",
-      name: "Rika NODA"
-    ),
-  )
+    (student-id: "75*****", name: "Kouji KIKAI"),
+    (student-id: "75*****", name: "Rika NODA"),
+  ),
 )
 
 To finish your graduation study in the department of mechanical engineering, English abstract was required from 2017. Nowadays, we need to write reports in English to attract large audience. Therefore, you are requested to write summary of your study in English .........
