@@ -5,8 +5,8 @@ parent: 図の挿入
 nav_order: 5
 ---
 
-
 # 図が4枚以上のとき
+
 {: .no_toc}
 
 図が4枚以上のときの例です．
@@ -15,10 +15,11 @@ nav_order: 5
 これ以上小さくなると，見づらいためです．
 
 ## Table of contents
+
 {: .no_toc .text-delta }
 
 1. TOC
-{:toc}
+   {:toc}
 
 ---
 
@@ -73,7 +74,6 @@ nav_order: 5
 | ![](../images/figure-fig5-1.png) |
 
 ---
-
 
 ### 3個ずつ並べるとき
 

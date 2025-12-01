@@ -6,13 +6,15 @@ nav_order: 1
 ---
 
 # 基本の文章
+
 {: .no_toc }
 
 ## Table of contents
+
 {: .no_toc .text-delta }
 
 1. TOC
-{:toc}
+   {:toc}
 
 ---
 
@@ -46,29 +48,32 @@ nav_order: 1
 
 1. `chapter`フォルダの中に`turbulence.typ`ファイルを作る
 2. `turbulence.typ`の中に次のように書く
-    ```
-    #import "../style/thesis_style.typ": *
 
-    = 乱流について
-    <chapter:乱流について>
-    ```
+   ```
+   #import "../style/thesis_style.typ": *
+
+   = 乱流について
+   <chapter:乱流について>
+   ```
+
 3. `main.typ`に以下の内容を追記して，新しく作ったファイルを認識させる
-    ```
-    //乱流について
-    #include "chapter/turbulence.typ"
-    ```
+   ```
+   //乱流について
+   #include "chapter/turbulence.typ"
+   ```
 
 ### チャプターを削除するとき
 
 例えば，`chapter/discussion.typ`を削除するときは，以下のようにします．
 
 1. `main.typ`内の以下の項目を削除する
-    ```
-    //考察
-    #include "chapter/discussion.typ"
-    ```
 
-    このとき，`chapter`フォルダ内に残った`discussion.typ`は残しておいても削除してもかまいませんが，`main.typ`内で認識させている他のファイルは削除してはいけません．
+   ```
+   //考察
+   #include "chapter/discussion.typ"
+   ```
+
+   このとき，`chapter`フォルダ内に残った`discussion.typ`は残しておいても削除してもかまいませんが，`main.typ`内で認識させている他のファイルは削除してはいけません．
 
 ---
 
@@ -106,6 +111,7 @@ Typstには，3種類の構文モードがあります．
 - `.typ`内で2行改行すると，段落が切り替わります．
 
 {: .note }
+
 > `.typ`内では，一文ごとに改行することを強く勧めます．
 > これは，git上で差分管理する上で重要なことです．
 > また，段落の切り替えは上記のように2行改行で対応してください．
@@ -193,23 +199,22 @@ Navier--Stokes equation
 **引数**
 
 > ---
-> **body**
-> <span class="label label-green">contents</span>
+>
+> **body** > <span class="label label-green">contents</span>
 >
 > 節の題名を書きます．
 >
 > ---
-> **numbering**
-> <span class="label label-red">none</span>
-> <span class="label label-purple">str</span>
+>
+> **numbering** > <span class="label label-red">none</span> > <span class="label label-purple">str</span>
 >
 > 番号をつけない場合にこれを追記します．
 >
 > デフォルト：`"1.1"`
 >
 > ---
-> **level**
-> <span class="label label-blue">int</span>
+>
+> **level** > <span class="label label-blue">int</span>
 >
 > 節の深さを設定します．
 > `1`のときチャプタを作成し，`2`以降で節を作成します．
@@ -217,8 +222,8 @@ Navier--Stokes equation
 > デフォルト：`auto`
 >
 > ---
-> **outlined**
-> <span class="label label-yellow">bool</span>
+>
+> **outlined** > <span class="label label-yellow">bool</span>
 >
 > この項目を目次に入れるかを設定します．
 > `true`で目次に追加し，`false`で目次に追加しません．
@@ -228,6 +233,7 @@ Navier--Stokes equation
 > ---
 
 {: .note }
+
 > 付録の章では，デフォルトで番号がつきません．
 > これは，本テンプレートの仕様です．
 > このため，付録ではわざわざ`#heading(...)`を使用する必要はなく，通常通り`== ...`を利用できます．

@@ -6,16 +6,18 @@ nav_order: 2
 ---
 
 # 図が1枚のとき
+
 {: .no_toc}
 
 図が1枚のときの例です．
 以下の例をそのまま貼り付けて使用できます．
 
 ## Table of contents
+
 {: .no_toc .text-delta }
 
 1. TOC
-{:toc}
+   {:toc}
 
 ---
 
