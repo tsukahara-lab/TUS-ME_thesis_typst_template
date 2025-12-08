@@ -23,19 +23,17 @@ nav_order: 1
 |:-|
 | ![](../images/figure-fig1-1.png) |
 
-
 **引数**
 
 > ---
-> **body**
-> [<span class="label label-green">content</span>](https://typst.app/docs/reference/foundations/content/)
+>
+> **body** > [<span class="label label-green">content</span>](https://typst.app/docs/reference/foundations/content/)
 >
 > image関数など，図を入れます．
 >
 > ---
-> **caption**
-> [<span class="label label-red">none</span>](https://typst.app/docs/reference/foundations/none/)
-> [<span class="label label-green">content</span>](https://typst.app/docs/reference/foundations/content/)
+>
+> **caption** > [<span class="label label-red">none</span>](https://typst.app/docs/reference/foundations/none/) > [<span class="label label-green">content</span>](https://typst.app/docs/reference/foundations/content/)
 >
 > キャプションを書きます．デフォルトでは何も描画しませんが，学位論文では必ず書いてください．
 > また，キャプションの文言は図が何を表しているのかを英語で書いてください．
@@ -44,9 +42,8 @@ nav_order: 1
 > デフォルト： `none`
 >
 > ---
-> **placement**
-> [<span class="label label-purple">auto</span>](https://typst.app/docs/reference/foundations/auto/)
-> [<span class="label label-blue">alignment</span>](https://typst.app/docs/reference/layout/alignment/)
+>
+> **placement** > [<span class="label label-purple">auto</span>](https://typst.app/docs/reference/foundations/auto/) > [<span class="label label-blue">alignment</span>](https://typst.app/docs/reference/layout/alignment/)
 >
 > 図の配置を決定します．
 > デフォルトでは，図を学位論文中の最適な位置へ配置します．
@@ -58,9 +55,8 @@ nav_order: 1
 > デフォルト：`auto`
 >
 > ---
-> **label**
-> [<span class="label label-red">none</span>](https://typst.app/docs/reference/foundations/none/)
-> [<span class="label label-yellow">label</span>](https://typst.app/docs/reference/foundations/label/)
+>
+> **label** > [<span class="label label-red">none</span>](https://typst.app/docs/reference/foundations/none/) > [<span class="label label-yellow">label</span>](https://typst.app/docs/reference/foundations/label/)
 >
 > ラベルを書きます．これによって，参照が可能となります．
 > 学位論文では，必ず文章中で参照をしてください．

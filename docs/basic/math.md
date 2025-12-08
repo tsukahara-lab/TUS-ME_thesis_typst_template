@@ -6,16 +6,18 @@ nav_order: 3
 ---
 
 # 数式
+
 {: .no_toc }
 
 数式の書き方について紹介します．
 数式文字などの具体的な表記法については，[公式ドキュメント](https://typst.app/docs/reference/math/)を参照してください．
 
 ## Table of contents
+
 {: .no_toc .text-delta }
 
 1. TOC
-{:toc}
+   {:toc}
 
 ---
 
@@ -107,13 +109,13 @@ physicaパッケージには，様々な便利関数が含まれます．詳し�
 
 以下は，physicaパッケージで微分を書く例です．
 
-| コード | レンダリング |
-|:-:|:-:|
-| `dv(y, x)` | <img src="../images/basic-math-ex1.png" width="50"> |
-| `dv(y, x, 2)` | <img src="../images/basic-math-ex2.png" width="50"> |
-| `pdv(y, x)` | <img src="../images/basic-math-ex3.png" width="50"> |
-| `pdv(y, x, 2)` | <img src="../images/basic-math-ex4.png" width="50"> |
-| `pdv(y, x, z)` | <img src="../images/basic-math-ex5.png" width="60"> |
+|         コード         |                    レンダリング                     |
+| :--------------------: | :-------------------------------------------------: |
+|       `dv(y, x)`       | <img src="../images/basic-math-ex1.png" width="50"> |
+|     `dv(y, x, 2)`      | <img src="../images/basic-math-ex2.png" width="50"> |
+|      `pdv(y, x)`       | <img src="../images/basic-math-ex3.png" width="50"> |
+|     `pdv(y, x, 2)`     | <img src="../images/basic-math-ex4.png" width="50"> |
+|     `pdv(y, x, z)`     | <img src="../images/basic-math-ex5.png" width="60"> |
 | `pdv(y, x, z, [2, 1])` | <img src="../images/basic-math-ex6.png" width="70"> |
 
 この他にも，physicaパッケージには微分に留まらない多くの関数が存在します．

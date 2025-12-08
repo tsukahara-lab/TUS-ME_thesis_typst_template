@@ -6,14 +6,16 @@ nav_order: 3
 ---
 
 # CeTZで書く
+
 {: .no_toc}
 
 ここでは，CeTZで図を書く方法について紹介します
 
 ## Table of contents
+
 {: .no_toc .text-delta }
 
 1. TOC
-{:toc}
+   {:toc}
 
 ---

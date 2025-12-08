@@ -6,16 +6,18 @@ nav_order: 3
 ---
 
 # 図が2枚のとき
+
 {: .no_toc}
 
 図が2枚のときの例です．
 以下の例をそのまま貼り付けて使用できます．
 
 ## Table of contents
+
 {: .no_toc .text-delta }
 
 1. TOC
-{:toc}
+   {:toc}
 
 ---
 
@@ -84,7 +86,6 @@ nav_order: 3
 
 |:-|
 | ![](../images/figure-fig3-2.png) |
-
 
 {: .note }
 上記の設定では自動配置の例を示していますが，最も外側の`fig`関数に`placement`を指定することで手動で配置することもできます．

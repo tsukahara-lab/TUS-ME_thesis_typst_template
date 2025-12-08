@@ -11,13 +11,9 @@
   master: false,
   laboratory: [塚原],
   authors: (
-    ( student-id: "75*****",
-      name: "機械　工作"
-    ),
-    ( student-id: "75*****",
-      name: "野田　理科"
-    ),
-  )
+    (student-id: "75*****", name: "機械　工作"),
+    (student-id: "75*****", name: "野田　理科"),
+  ),
 )
 
 // 目次

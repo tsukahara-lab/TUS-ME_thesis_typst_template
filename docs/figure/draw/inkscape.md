@@ -6,14 +6,16 @@ nav_order: 2
 ---
 
 # Inkscapeで書く
+
 {: .no_toc}
 
 ここでは，Inkscapeで図を書く方法について紹介します
 
 ## Table of contents
+
 {: .no_toc .text-delta }
 
 1. TOC
-{:toc}
+   {:toc}
 
 ---
