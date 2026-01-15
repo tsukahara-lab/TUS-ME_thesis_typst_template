@@ -524,16 +524,10 @@
   v(1em)
   laboratory + [研究室]
   v(4em)
+  for value in authors{
+    number-to-zenkaku(value.student-id, nonum: true) + h(2em) + value.name + linebreak()
+  }
   set align(left)
-  grid(
-    columns: (17em, auto),
-    [],
-    {
-      for value in authors{
-        number-to-zenkaku(value.student-id, nonum: true) + h(2em) + value.name + linebreak()
-      }
-    }
-  )
 }
 
 

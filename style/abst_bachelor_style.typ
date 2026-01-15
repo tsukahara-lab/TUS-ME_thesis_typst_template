@@ -165,7 +165,18 @@
 
   // 氏名
   let author_arr = authors.map(a => a.student-id + [ ] + a.name)
-  [#author_arr.join([　　])]
+  if author_arr.len() >= 3{
+    let linebreak_count = int(calc.round(author_arr.len() / 2))
+    for value in range(linebreak_count - 1){
+      author_arr.at(2 * value) + [　　] + author_arr.at(2 * value + 1)
+      linebreak()
+      h(1fr)
+    }
+    [#author_arr.slice(2 * (linebreak_count - 1), author_arr.len()).join([　　])]
+  }
+  else{
+    [#author_arr.join([　　])]
+  }
   v(1em)
 
 }
@@ -204,7 +215,7 @@
 
   // 氏名
   let num = 1
-  let author_arr = authors.map(a => a.student-id + [ ] + a.name)
+  let author_arr = authors.map(a => a.student-id + [~] + a.name)
   [#author_arr.join([, ], last: [ and ])]
   v(1em)
 
