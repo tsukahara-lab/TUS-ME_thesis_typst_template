@@ -44,9 +44,24 @@
       let heading-here = here-page in heading-page
 
       let fig-size = measure(figure(..arg)).height
-      let interval-size = 297mm - 63mm - fig-size - here().position().y
+      let interval-size = 297mm - 33mm - fig-size - here().position().y
 
-      text(font: "Adobe Blank")[#hide([A])]
+      let fig-bef = query(selector(figure).before(here())).map(it => {
+        if it.kind == image or it.kind == table{
+          (it.location().page(), measure(it).height)
+        }
+        else{
+          (0, 0pt)
+        }
+      })
+
+      for value in fig-bef{
+        if value.at(0) == here-page{
+          interval-size -= value.at(1)
+        }
+      }
+
+      place(hide[A])
 
       if heading-here {//章の先頭ページのとき
 
@@ -69,12 +84,14 @@
             ]
           }
           else{//図を下に配置できないとき，次ページの上に配置
-            pagebreak()
+            //pagebreak()
             [
+              #v(297mm - 63mm)
               #figure(
                 ..arg,
                 placement: top
               )#label
+              #v(-(297mm - 63mm))
             ]
           }
         }
