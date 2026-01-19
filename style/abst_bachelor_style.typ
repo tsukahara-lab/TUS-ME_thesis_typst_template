@@ -63,30 +63,38 @@
     set par(leading: 4.5pt, justify: true)
     set text(size: 11.4pt)
     set align(top)
-    grid(
-      columns: 2,
-      {
-        if it.kind != "sub-figure"{// サブ図以外の場合，図番号を更新
-          counter(figure.where(kind: "sub-figure")).update(0)
-        }
 
-        if it.kind == table{
-          [Table ] + context counter(figure.where(kind: table)).display() + [　]
-        }
-        else if it.kind == raw{
-          [Code ] + context counter(figure.where(kind: raw)).display() + [　]
-        }
-        else if it.kind == "sub-figure"{
-          it.supplement
-          context numbering("(a)", counter(figure.where(kind: "sub-figure")).get().at(0))
-          [　]
-        }
-        else{
-          [Fig. ] + context counter(figure.where(kind: image)).display() + [　]
-        }
-      },
-      align(left)[#it.body]
-    )
+    let kind-length = 0pt
+    let kind-content = none
+
+    if it.kind != "sub-figure"{// サブ図以外の場合，図番号を更新
+      counter(figure.where(kind: "sub-figure")).update(0)
+    }
+    // kind-contentの設定
+    if it.kind == table{
+      kind-content = [Table ] + context counter(figure.where(kind: table)).display() + [　]
+    }
+    else if it.kind == raw{
+      kind-content = [Code ] + context counter(figure.where(kind: raw)).display() + [　]
+    }
+    else if it.kind == "sub-figure"{
+      kind-content = it.supplement + context numbering("(a)", counter(figure.where(kind: "sub-figure")).get().at(0)) + [　]
+    }
+    else{
+      kind-content = [Fig. ] + context counter(figure.where(kind: image)).display() + [　]
+    }
+
+    // kind-contentの長さを測定
+    kind-length = measure(box(kind-content)).width
+    let space-length = measure(sym.space.thin).width
+
+    // captionの出力
+    block[
+      #set par(hanging-indent: kind-length - space-length,)
+      #set align(left)
+
+      #box(kind-content)#sym.wj#it.body
+    ]
   }
   //表の設定
   let frame(stroke) = (x, y) => (
