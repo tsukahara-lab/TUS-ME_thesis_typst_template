@@ -43,7 +43,7 @@
       let here-page = here().page()
       let heading-here = here-page in heading-page
 
-      let fig-size = measure(figure(..arg)).height
+      let fig-size = measure(figure(..arg), width: page.width - 35mm).height
       let interval-size = 297mm - 33mm - fig-size - here().position().y
 
       let fig-bef = query(selector(figure).before(here())).map(it => {
