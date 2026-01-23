@@ -168,7 +168,7 @@
 
   // 研究室名
   set align(left)
-  [\[] + laboratory + [研究室\]]
+  [［] + laboratory + [研究室］]
   h(1fr)
 
   // 氏名
