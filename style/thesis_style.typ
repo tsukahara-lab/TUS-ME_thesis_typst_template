@@ -3,7 +3,7 @@
 #let mincho = ((name: "Times New Roman", covers: "latin-in-cjk"), "Harano Aji Mincho")
 #let gothic = ((name: "Helvetica", covers: "latin-in-cjk"), "Harano Aji Gothic")
 #let mathf = ("Latin Modern Math", ..mincho)
-#let codef = "Noto Mono for Powerline"
+#let codef = ("Noto Mono for Powerline", ..gothic)
 
 // 日本語間のコード改行
 #let cjkre = regex(
@@ -255,25 +255,20 @@
   //コードの設定
   show raw.where(block: true): it => {
     set text(font: codef)
-    set table(stroke: (x, y) => (
-      //left: if x == 1 { 0.5pt } else { 0pt },
-      //right: if x == 1 { 0.5pt } else { 0pt },
-      top: if y == 0 and x == 1 { 0.5pt } else { 0pt },
-      bottom: if x == 1 { 0.5pt } else { 0pt },
-    ))
     table(
       columns: (5%, 95%),
       align: (right, left),
+      stroke: none,
+      table.hline(start: 1),
       ..for value in it.lines {
         (text(fill: black, str(value.number)), value)
-      }
+      },
+      table.hline(start: 1)
     )
   }
   show raw.where(block: false): it => {
     set text(font: codef)
-    h(0.5em)
     it
-    h(0.5em)
   }
 
   //リストの設定
