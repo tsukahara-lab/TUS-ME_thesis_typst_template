@@ -198,7 +198,8 @@
   show figure.caption: it => {
     // if figure caption is image ...
     set par(leading: 4.5pt, justify: true)
-    set text(size: 11.4pt)
+    let text-size = 9.5pt
+    set text(size: text-size)
     set align(top)
 
     let kind-length = 0pt
@@ -222,12 +223,11 @@
     }
 
     // kind-contentの長さを測定
-    kind-length = measure(box(kind-content)).width
-    let space-length = measure(sym.space.thin).width
-
+    kind-length = measure(box(text(kind-content, size: text-size))).width
     // captionの出力
     block[
-      #set par(hanging-indent: kind-length - space-length)
+      //#repr(kind-length)
+      #set par(hanging-indent: kind-length)
       #set align(left)
 
       #box(kind-content)#sym.wj#it.body
