@@ -11,9 +11,9 @@
 
 
 // 外部パッケージ
-#import "@preview/equate:0.2.1": equate
+#import "@preview/equate:0.3.2": equate
 #import "@preview/roremu:0.1.0": roremu
-#import "@preview/physica:0.9.4": *
+#import "@preview/physica:0.9.8": *
 #import "@preview/wordometer:0.1.5": word-count, total-words
 
 #let abst_init(body) = {

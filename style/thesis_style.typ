@@ -17,8 +17,7 @@
 // 外部パッケージ
 #import "@preview/equate:0.3.2": equate
 #import "@preview/roremu:0.1.0": roremu
-#import "@preview/physica:0.9.6": *
-#import "@preview/unify:0.7.1": *
+#import "@preview/physica:0.9.8": *
 #import "@preview/cjk-spacer:0.2.1": *
 
 #import "@preview/parize:0.2.1": par-indent
