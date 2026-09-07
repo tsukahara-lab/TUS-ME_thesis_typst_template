@@ -92,7 +92,7 @@
           #v(2em)
           #grid(
             columns: (20%, 60%, 20%),
-            align: bottom,
+            align: (horizon, bottom),
             [
               第 #text(size: 2em, weight: "medium", context counter(heading).display()) 章
             ],
@@ -414,9 +414,9 @@
           #v(2em)
           #grid(
             columns: (20%, 60%, 20%),
-            align: bottom,
+            align: (horizon, bottom),
             [
-              付録#h(0.75em)#text(size: 2em, weight: "medium", context counter(heading).display())
+              付録#h(0.5em)#text(size: 2em, weight: "medium", context counter(heading).display())
             ],
             it.body,
             [],
