@@ -14,8 +14,6 @@
 
 #roremu(143, offset: 448+151)
 
-#pagebreak()
-
 == 先行研究
 <section:先行研究>
 

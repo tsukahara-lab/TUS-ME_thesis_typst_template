@@ -1,19 +1,20 @@
 
 // フォント
-#let mincho = ("Times New Roman", "Harano Aji Mincho")
-#let gothic = ("Helvetica", "Harano Aji Gothic")
-#let english_title = ("Arial", "CMU Sans Serif")
+#let mincho = ((name: "Times New Roman", covers: "latin-in-cjk"), "Harano Aji Mincho")
+#let gothic = ((name: "Helvetica", covers: "latin-in-cjk"), "Harano Aji Gothic")
+#let english_title = ("Helvetica",)
 #let mathf = ("Latin Modern Math", ..mincho)
-#let codef = ("Noto Mono for Powerline")
+#let codef = ("Noto Mono for Powerline", ..gothic)
 
 // 日本語間のコード改行
 #let cjkre = regex("([\u3000-\u303F\u3040-\u30FF\u31F0-\u31FF\u3200-\u9FFF\uFF00-\uFFEF][　！”＃＄％＆’（）*+，−．／：；＜＝＞？＠［＼］＾＿｀｛｜｝〜、。￥・]*)[ ]+([\u3000-\u303F\u3040-\u30FF\u31F0-\u31FF\u3200-\u9FFF\uFF00-\uFFEF])[ ]*")
 
 
 // 外部パッケージ
-#import "@preview/equate:0.2.1": equate
+#import "@preview/equate:0.3.2": equate
 #import "@preview/roremu:0.1.0": roremu
-#import "@preview/physica:0.9.4": *
+#import "@preview/physica:0.9.8": *
+#import "@preview/wordometer:0.1.5": word-count, total-words
 
 #let abst_init(body) = {
 
@@ -168,6 +169,7 @@
 
   // 研究室名
   set align(left)
+  h(-1em)
   [［] + laboratory + [研究室］]
   h(1fr)
 
@@ -189,6 +191,11 @@
 
 }
 
+#let abst_en_init(body) = {
+  set par(first-line-indent: 0pt)
+  show: word-count
+  body
+}
 
 #let abst_title_en(
   title: [],
@@ -204,6 +211,7 @@
 ) = {
 
   pagebreak()
+  set par(first-line-indent: 0pt)
 
   // タイトル
   align(center)[
@@ -235,6 +243,8 @@
   set par.line(numbering: n => text(size: 8pt, font: codef)[#n], numbering-scope: "page",number-clearance: 10pt)
 
   body
+
+  [#h(1fr) (#total-words words)]
 }
 
 

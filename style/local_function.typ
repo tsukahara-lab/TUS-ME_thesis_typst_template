@@ -2,7 +2,7 @@
 // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 //                        LOCAL FUNCTION
 // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+#import "@preview/unify:0.8.1": *
 
 #let nonumber = <equate:revoke>
 
@@ -22,6 +22,8 @@
   [X]
 ));h(-8.0pt)
 }
+
+#let typst = text(size: 1.05em, weight: "bold", fill: rgb("#239dad"))[typst]
 
 #let signary-list(title: [], body) = {
   set par(first-line-indent: 0em)
@@ -240,3 +242,6 @@
 #let Wea = $W e a$
 #let We = $W e$
 #let Wi = $W i$
+
+#let si(..x) = unit(..x, space: none, per: "fraction-short")
+#let SI(..x) = qty(..x, per: "fraction-short")

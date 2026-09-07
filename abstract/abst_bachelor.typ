@@ -36,5 +36,6 @@
     ),
   )
 )
+#show: abst_en_init
 
 To finish your graduation study in the department of mechanical engineering, English abstract was required from 2017. Nowadays, we need to write reports in English to attract large audience. Therefore, you are requested to write summary of your study in English .........

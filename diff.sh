@@ -16,7 +16,7 @@ cat <<EOF > diff.typ
 )
 EOF
 
-typst compile diff.typ "$output"
+typst compile --ignore-system-fonts --font-path fonts diff.typ "$output"
 
 rm -r .diff
 rm diff.typ
