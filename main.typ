@@ -7,7 +7,7 @@
 // タイトルページ
 #thesis_title(
   title: [ここには学位論文のタイトルを入れます．\ 一文字でも間違えたら受理されません．],
-  year: 2025,
+  year: 2026,
   master: false,
   laboratory: [塚原],
   authors: (

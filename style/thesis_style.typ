@@ -523,7 +523,7 @@
 
 #let thesis_title(
   title: [タイトル],
-  year: "2025",
+  year: "2026",
   master: false,
   month: "2",
   institution: none,
