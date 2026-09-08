@@ -4,19 +4,21 @@
 #let gothic = ("Helvetica", "Harano Aji Gothic")
 #let english_title = ("Arial", "CMU Sans Serif")
 #let mathf = ("Latin Modern Math", ..mincho)
-#let codef = ("Noto Mono for Powerline")
+#let codef = "Noto Mono for Powerline"
 
 // 日本語間のコード改行
-#let cjkre = regex("([\u3000-\u303F\u3040-\u30FF\u31F0-\u31FF\u3200-\u9FFF\uFF00-\uFFEF][　！”＃＄％＆’（）*+，−．／：；＜＝＞？＠［＼］＾＿｀｛｜｝〜、。￥・]*)[ ]+([\u3000-\u303F\u3040-\u30FF\u31F0-\u31FF\u3200-\u9FFF\uFF00-\uFFEF])[ ]*")
+#let cjkre = regex(
+  "([\u3000-\u303F\u3040-\u30FF\u31F0-\u31FF\u3200-\u9FFF\uFF00-\uFFEF][　！”＃＄％＆’（）*+，−．／：；＜＝＞？＠［＼］＾＿｀｛｜｝〜、。￥・]*)[ ]+([\u3000-\u303F\u3040-\u30FF\u31F0-\u31FF\u3200-\u9FFF\uFF00-\uFFEF])[ ]*",
+)
 
 
 // 外部パッケージ
 #import "@preview/equate:0.2.1": equate
 #import "@preview/roremu:0.1.0": roremu
 #import "@preview/physica:0.9.4": *
+#import "@preview/cjk-spacer:0.2.1": *
 
 #let abst_init(body) = {
-
   //言語設定
   set text(lang: "ja", cjk-latin-spacing: auto, fallback: false)
 
@@ -27,7 +29,7 @@
       top: 30mm,
       bottom: 20mm,
       left: 18mm,
-      right: 18mm
+      right: 18mm,
     ),
   )
 
@@ -47,10 +49,6 @@
 
   // 数式設定
   show math.equation: set text(font: mathf)
-  show math.equation.where(block: false): it => {
-    let ghost = hide(text(font: "Adobe Blank", "\u{375}")) // 欧文ゴースト
-    ghost; it; ghost
-  }
 
   // 図表設定
   set figure(placement: bottom)
@@ -59,38 +57,39 @@
   show figure.where(kind: table): set figure.caption(position: top)
   show figure.where(kind: raw): set figure.caption(position: top)
   show figure.where(kind: raw): set figure(supplement: [コード])
-  show figure.caption: it => {// if figure caption is image ...
+  show figure.caption: it => {
+    // if figure caption is image ...
     set par(leading: 4.5pt, justify: true)
-    set text(size: 11.4pt)
+    let text-size = 9.5pt
+    set text(size: text-size)
     set align(top)
 
     let kind-length = 0pt
     let kind-content = none
 
-    if it.kind != "sub-figure"{// サブ図以外の場合，図番号を更新
+    if it.kind != "sub-figure" {
+      // サブ図以外の場合，図番号を更新
       counter(figure.where(kind: "sub-figure")).update(0)
     }
     // kind-contentの設定
-    if it.kind == table{
+    if it.kind == table {
       kind-content = [Table ] + context counter(figure.where(kind: table)).display() + [　]
-    }
-    else if it.kind == raw{
+    } else if it.kind == raw {
       kind-content = [Code ] + context counter(figure.where(kind: raw)).display() + [　]
-    }
-    else if it.kind == "sub-figure"{
-      kind-content = it.supplement + context numbering("(a)", counter(figure.where(kind: "sub-figure")).get().at(0)) + [　]
-    }
-    else{
+    } else if it.kind == "sub-figure" {
+      kind-content = (
+        it.supplement + context numbering("(a)", counter(figure.where(kind: "sub-figure")).get().at(0)) + [　]
+      )
+    } else {
       kind-content = [Fig. ] + context counter(figure.where(kind: image)).display() + [　]
     }
 
     // kind-contentの長さを測定
-    kind-length = measure(box(kind-content)).width
-    let space-length = measure(sym.space.thin).width
-
+    kind-length = measure(box(text(kind-content, size: text-size))).width
     // captionの出力
     block[
-      #set par(hanging-indent: kind-length - space-length,)
+      //#repr(kind-length)
+      #set par(hanging-indent: kind-length)
       #set align(left)
 
       #box(kind-content)#sym.wj#it.body
@@ -100,13 +99,16 @@
   let frame(stroke) = (x, y) => (
     left: if x > 0 { stroke } else { none },
     right: none,
-    top: if y == 0 { stroke } else if y == 1 { /* pat-single + 5pt  */ 0pt} else{ 0pt },
+    top: if y == 0 { stroke } else if y == 1 {
+      /* pat-single + 5pt  */
+      0pt
+    } else { 0pt },
     bottom: black + 0.5pt,
   )
   set table(stroke: none)
   set table(
     stroke: frame(black + 0.5pt),
-    row-gutter: (2pt, auto)
+    row-gutter: (2pt, auto),
   )
   set table.hline(stroke: 0.5pt)
   set table.vline(stroke: 0.5pt)
@@ -114,45 +116,39 @@
   //コードの設定
   show raw.where(block: true): it => {
     set text(font: codef)
-      set table(stroke: (x, y) => (
-        //left: if x == 1 { 0.5pt } else { 0pt },
-        //right: if x == 1 { 0.5pt } else { 0pt },
-        top: if y == 0 and x == 1{ 0.5pt } else { 0pt },
-        bottom: if x == 1 { 0.5pt } else { 0pt },
-      ))
-      table(
-        columns: (5%, 95%),
-        align: (right, left),
-        ..for value in it.lines {
-          (text(fill: black,str(value.number)), value)
-        }
-      )
+    table(
+      columns: (5%, 95%),
+      align: (right, left),
+      stroke: none,
+      table.hline(start: 1),
+      ..for value in it.lines {
+        (text(fill: black, str(value.number)), value)
+      },
+      table.hline(start: 1),
+    )
   }
-  show raw.where(block: false): it =>{
+  show raw.where(block: false): it => {
     set text(font: codef)
-    h(0.5em)
     it
-    h(0.5em)
   }
 
   // 日本語間のコード改行を無効化
-  show cjkre: it => it.text.match(cjkre).captures.sum()
+  show: cjk-spacer
 
   body
-
 }
 
 #let make-space-character(content-or-array) = {
   let output = []
-  if type(content-or-array) == content{
-    for char in content-or-array.text{
+  if type(content-or-array) == content {
+    for char in content-or-array.text {
       output += char + h(4pt, weak: true)
     }
     output += linebreak()
-  }else if type(content-or-array) == array{
-    for value in content-or-array{
-      if value != []{
-        for char in value.text{
+  } else if type(content-or-array) == array {
+    for value in content-or-array {
+      if value != [] {
+        for char in value.text {
           output += char + h(4pt, weak: true)
         }
         output += linebreak()
@@ -166,15 +162,13 @@
   title: ([◯◯◯◯◯（修士論文題目）◯◯◯◯◯], [◯◯◯◯◯（修士論文題目副題）◯◯◯◯◯]),
   author: [申請者氏名],
   chief: ([指導教員氏名１], [指導教員氏名２]),
-  assistant: ([指導補助教員氏名１], [指導補助教員氏名２])
+  assistant: ([指導補助教員氏名１], [指導補助教員氏名２]),
 ) = {
-
   // タイトル
   let linenum = 1
-  if type(title) == array{
+  if type(title) == array {
     linenum += title.len()
-  }
-  else{
+  } else {
     linenum += 1
   }
 
@@ -187,11 +181,10 @@
   set align(right)
 
   let output-post = ([機械航空宇宙工学専攻], [指導教員])
-  for i in range(chief.len() - 1){
+  for i in range(chief.len() - 1) {
     output-post.push([　])
   }
   output-post.push([指導補助教員])
-
 
   grid(
     columns: 2,
@@ -201,50 +194,47 @@
     },
     {
       make-space-character((author, ..chief, ..assistant))
-    }
+    },
   )
-
 }
 
 #let check-contents(body) = {
-
   // 行番号の設定
-  set par.line(numbering: n => text(size: 8pt, font: codef)[#n], numbering-scope: "page",number-clearance: 10pt)
+  set par.line(numbering: n => text(size: 8pt, font: codef)[#n], numbering-scope: "page", number-clearance: 10pt)
 
   body
 }
 
 #let spacing-body(body) = {
-
   hide[　]
   //v(1.66em)
 
-  for value in body.children{
-    if value.func() != text and value != [ ]{
+  for value in body.children {
+    if value.func() != text and value != [ ] {
       value
-    }
-    else if value == [ ]{
+    } else if value == [ ] {
       //none
-    }
-    else{
+    } else {
       let bef_char = ""
-      for char in value.text{
-        if (regex("[\u3000-\u303F\u3040-\u30FF\u31F0-\u31FF\u3200-\u9FFF\uFF00-\uFFEF　！”＃＄％＆’（）*+，−．／：；＜＝＞？＠［＼］＾＿｀｛｜｝〜、。￥・―]") in char){
+      for char in value.text {
+        if (
+          regex(
+            "[\u3000-\u303F\u3040-\u30FF\u31F0-\u31FF\u3200-\u9FFF\uFF00-\uFFEF　！”＃＄％＆’（）*+，−．／：；＜＝＞？＠［＼］＾＿｀｛｜｝〜、。￥・―]",
+          )
+            in char
+        ) {
           char + h(4pt, weak: true)
-        }
-        else{
-          if bef_char == "（"{
+        } else {
+          if bef_char == "（" {
             h(-4pt) + char
-          }
-          else{
-            char// + h(4pt, weak: true)
+          } else {
+            char // + h(4pt, weak: true)
           }
         }
         bef_char = char
       }
     }
   }
-
 }
 
 
