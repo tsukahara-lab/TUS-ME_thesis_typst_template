@@ -24,17 +24,13 @@
 
 //　文献パッケージ
 #import "@preview/enja-bib:0.2.0": *
-#let bib-citet-cjk(bib_cite_contents) = {
-  return bib_cite_contents.at(0) + [~（] + bib_cite_contents.at(1) + [）]
-}
 #let bib-citet-default(bib_cite_contents) = {
   return bib_cite_contents.at(0) + [~(] + bib_cite_contents.at(1) + [)]
 }
 #let bib-citep-default(bib_cite_contents) = {
   return bib_cite_contents.at(0) + [,~] + bib_cite_contents.at(1)
 }
-#let (bib-init, bibliography-list, bib-tex, bib-file, bib-item, citet, citep, citen, citefull) = set-style(toml("jsme.toml"), add-utils: (bib-citet-cjk: bib-citet-cjk))
-#let citete = bib-cite-func.with(bib-cite: ("", bib-citet-default, "; ", ""))
+#let (bib-init, bibliography-list, bib-tex, bib-file, bib-item, citet, citep, citen, citefull) = set-style(toml("jsme.toml"))
 #let citepe = bib-cite-func.with(bib-cite: ("(", bib-citep-default, "; ", ")"))
 
 // 初期設定
