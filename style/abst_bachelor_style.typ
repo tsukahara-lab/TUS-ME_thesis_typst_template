@@ -6,11 +6,6 @@
 #let mathf = ("Latin Modern Math", ..mincho)
 #let codef = ("Noto Mono for Powerline", ..gothic)
 
-// 日本語間のコード改行
-#let cjkre = regex(
-  "([\u3000-\u303F\u3040-\u30FF\u31F0-\u31FF\u3200-\u9FFF\uFF00-\uFFEF][　！”＃＄％＆’（）*+，−．／：；＜＝＞？＠［＼］＾＿｀｛｜｝〜、。￥・]*)[ ]+([\u3000-\u303F\u3040-\u30FF\u31F0-\u31FF\u3200-\u9FFF\uFF00-\uFFEF])[ ]*",
-)
-
 #let is_check-contents = state("check-contents", false)
 
 // 外部パッケージ
@@ -18,6 +13,7 @@
 #import "@preview/roremu:0.1.0": roremu
 #import "@preview/physica:0.9.8": *
 #import "@preview/wordometer:0.1.5": total-words, word-count
+#import "@preview/cjk-spacer:0.2.1": *
 
 #let abst_init(body) = {
   //言語設定
@@ -50,12 +46,6 @@
 
   // 数式設定
   show math.equation: set text(font: mathf)
-  show math.equation.where(block: false): it => {
-    let ghost = hide(text(font: "Adobe Blank", "\u{375}")) // 欧文ゴースト
-    ghost
-    it
-    ghost
-  }
 
   // 図表設定
   set figure(placement: bottom)
@@ -123,29 +113,24 @@
   //コードの設定
   show raw.where(block: true): it => {
     set text(font: codef)
-    set table(stroke: (x, y) => (
-      //left: if x == 1 { 0.5pt } else { 0pt },
-      //right: if x == 1 { 0.5pt } else { 0pt },
-      top: if y == 0 and x == 1 { 0.5pt } else { 0pt },
-      bottom: if x == 1 { 0.5pt } else { 0pt },
-    ))
     table(
       columns: (5%, 95%),
       align: (right, left),
+      stroke: none,
+      table.hline(start: 1),
       ..for value in it.lines {
         (text(fill: black, str(value.number)), value)
-      }
+      },
+      table.hline(start: 1),
     )
   }
   show raw.where(block: false): it => {
     set text(font: codef)
-    h(0.5em)
     it
-    h(0.5em)
   }
 
   // 日本語間のコード改行を無効化
-  show cjkre: it => it.text.match(cjkre).captures.sum()
+  show: cjk-spacer
 
   body
 }
